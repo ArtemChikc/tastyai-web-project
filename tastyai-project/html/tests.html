@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Готовые тесты - TastyAI</title>
+  <link rel="icon" href="../files/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../files/css/styles.css">
+  <script src="../files/js/main.js" defer></script>
+</head>
+<body>
+  <!-- Хедер -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="../files/images/logo.svg" alt="TastyAI Logo">
+        <span>Tasty<strong>AI</strong></span>
+      </a>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="tests.html" class="active">Готовые тесты</a></li>
+          <li><a href="create-test.html">Создать тест</a></li>
+        </ul>
+      </nav>
+      
+      <div class="auth-btns">
+        <a href="auth.html" class="btn btn-outline">Войти</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Заголовок страницы -->
+    <section class="tests-header">
+      <div class="container">
+        <h1>Готовые тесты</h1>
+        <p>Выберите из нашей коллекции тестов, созданных с помощью искусственного интеллекта</p>
+        
+        <div class="tests-filters">
+          <div class="search-box">
+            <input type="text" placeholder="Поиск тестов...">
+            <button>Найти</button>
+          </div>
+          
+          <div class="filter-controls">
+            <select>
+              <option value="">Все категории</option>
+              <option value="science">Наука</option>
+              <option value="history">История</option>
+              <option value="art">Искусство</option>
+              <option value="tech">Технологии</option>
+            </select>
+            
+            <select>
+              <option value="">Сложность</option>
+              <option value="easy">Легкая</option>
+              <option value="medium">Средняя</option>
+              <option value="hard">Сложная</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Сетка тестов -->
+    <section class="tests-grid">
+      <div class="container">
+        <div class="tests-container">
+          <!-- Тест 1 -->
+          <div class="test-card">
+            <div class="test-card-header">
+              <span class="test-category">Наука</span>
+              <span class="test-difficulty">Легкая</span>
+            </div>
+            <h3 class="test-title">Основы квантовой физики</h3>
+            <p class="test-description">Проверьте свои знания о квантовых явлениях и теориях.</p>
+            <div class="test-meta">
+              <div class="test-stats">
+                <span>10 вопросов</span>
+                <span>Прошли: 342</span>
+              </div>
+              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+            </div>
+          </div>
+          
+          <!-- Тест 2 -->
+          <div class="test-card">
+            <div class="test-card-header">
+              <span class="test-category">История</span>
+              <span class="test-difficulty">Средняя</span>
+            </div>
+            <h3 class="test-title">Древний Рим и его наследие</h3>
+            <p class="test-description">Погрузитесь в мир римской истории и культуры.</p>
+            <div class="test-meta">
+              <div class="test-stats">
+                <span>15 вопросов</span>
+                <span>Прошли: 187</span>
+              </div>
+              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+            </div>
+          </div>
+          
+          <!-- Тест 3 -->
+          <div class="test-card">
+            <div class="test-card-header">
+              <span class="test-category">Искусство</span>
+              <span class="test-difficulty">Легкая</span>
+            </div>
+            <h3 class="test-title">Мировая живопись</h3>
+            <p class="test-description">Тест на знание знаменитых художников и их произведений.</p>
+            <div class="test-meta">
+              <div class="test-stats">
+                <span>12 вопросов</span>
+                <span>Прошли: 421</span>
+              </div>
+              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+            </div>
+          </div>
+          
+          <!-- Тест 4 -->
+          <div class="test-card">
+            <div class="test-card-header">
+              <span class="test-category">Технологии</span>
+              <span class="test-difficulty">Сложная</span>
+            </div>
+            <h3 class="test-title">Искусственный интеллект</h3>
+            <p class="test-description">Проверьте, насколько хорошо вы понимаете современные ИИ-технологии.</p>
+            <div class="test-meta">
+              <div class="test-stats">
+                <span>20 вопросов</span>
+                <span>Прошли: 128</span>
+              </div>
+              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+            </div>
+          </div>
+          
+          <!-- Тест 5 -->
+          <div class="test-card">
+            <div class="test-card-header">
+              <span class="test-category">История</span>
+              <span class="test-difficulty">Средняя</span>
+            </div>
+            <h3 class="test-title">Великие открытия человечества</h3>
+            <p class="test-description">История научных прорывов и изобретений, изменивших мир.</p>
+            <div class="test-meta">
+              <div class="test-stats">
+                <span>14 вопросов</span>
+                <span>Прошли: 276</span>
+              </div>
+              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+            </div>
+          </div>
+          
+          <!-- Тест 6 -->
+          <div class="test-card">
+            <div class="test-card-header">
+              <span class="test-category">Наука</span>
+              <span class="test-difficulty">Сложная</span>
+            </div>
+            <h3 class="test-title">Астрономия и космос</h3>
+            <p class="test-description">Углубленные вопросы о звездах, планетах и космических явлениях.</p>
+            <div class="test-meta">
+              <div class="test-stats">
+                <span>18 вопросов</span>
+                <span>Прошли: 94</span>
+              </div>
+              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Пагинация -->
+        <div class="pagination">
+          <button disabled>&lt; Назад</button>
+          <div class="pagination-pages">
+            <span class="pagination-current">1</span> из <span>5</span>
+          </div>
+          <button>Вперед &gt;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">
+            <img src="../files/images/logo.svg" alt="TastyAI Logo">
+            <span>Tasty<strong>AI</strong></span>
+          </div>
+          <p>Инновационная платформа для создания и прохождения интеллектуальных тестов.</p>
+        </div>
+        
+        <div class="footer-nav">
+          <div class="footer-nav-column">
+            <h4>Навигация</h4>
+            <ul>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="tests.html">Готовые тесты</a></li>
+              <li><a href="create-test.html">Создать тест</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h4>Поддержка</h4>
+            <ul>
+              <li><a href="#">Помощь</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h4>Правовая информация</h4>
+            <ul>
+              <li><a href="#">Условия использования</a></li>
+              <li><a href="#">Политика конфиденциальности</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 TastyAI. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
