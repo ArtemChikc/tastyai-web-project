@@ -4,154 +4,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TastyAI - Вкусные тесты с искусственным интеллектом</title>
+  <link rel="stylesheet" href="../files/css/styles.css">
   <link rel="icon" href="../files/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../files/css/styles.css">
-  <script src="../files/js/main.js" defer></script>
 </head>
 <body>
   <!-- Хедер -->
   <header class="header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="../files/images/logo.svg" alt="TastyAI Logo">
-        <span>Tasty<strong>AI</strong></span>
+    <div class="container flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 animate-fade-in">
+        <span class="text-2xl font-bold">
+          <span class="text-tasty">Tasty</span><span>AI</span>
+        </span>
       </a>
       
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="index.html" class="active">Главная</a></li>
-          <li><a href="tests.html">Готовые тесты</a></li>
-          <li><a href="create-test.html">Создать тест</a></li>
-        </ul>
+      <!-- Поисковая строка -->
+      <form class="hidden md:flex relative max-w-sm items-center animate-fade-in">
+        <input
+          type="text"
+          placeholder="Поиск тестов..."
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+        >
+        <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+          <span class="search-icon">🔍</span>
+        </button>
+      </form>
+      
+      <!-- Навигация -->
+      <nav class="hidden md:flex items-center gap-1 animate-fade-in">
+        <a href="/tests.html" class="nav-link">Готовые тесты</a>
+        <a href="/create-test.html" class="nav-link">Создать тест</a>
+        <a href="/auth.html">
+          <button class="ml-2 border-tasty text-tasty hover:bg-tasty hover:text-white btn btn-outline">
+            Авторизация
+          </button>
+        </a>
       </nav>
       
-      <div class="auth-btns">
-        <a href="auth.html" class="btn btn-outline">Войти</a>
+      <!-- Мобильное меню -->
+      <button class="md:hidden menu-button">
+        <span class="menu-icon">☰</span>
+      </button>
+    </div>
+    
+    <!-- Мобильное меню (скрыто по умолчанию) -->
+    <div class="mobile-menu md:hidden animate-fade-in" style="display: none;">
+      <div class="container py-4 flex flex-col gap-4">
+        <form class="flex relative items-center">
+          <input
+            type="text"
+            placeholder="Поиск тестов..."
+            class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+          >
+          <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+            <span class="search-icon">🔍</span>
+          </button>
+        </form>
+        
+        <nav class="flex flex-col items-start gap-3">
+          <a href="/tests.html" class="text-lg font-medium">Готовые тесты</a>
+          <a href="/create-test.html" class="text-lg font-medium">Создать тест</a>
+          <a href="/auth.html">
+            <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+              Авторизация
+            </button>
+          </a>
+        </nav>
       </div>
     </div>
   </header>
 
-  <main>
+  <main class="flex-1">
     <!-- Герой секция -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1><span class="text-primary">Вкусные</span> тесты с искусственным интеллектом</h1>
-          <p>Создавайте, проходите и делитесь уникальными тестами, созданными с помощью ИИ. TastyAI — это новый подход к онлайн-тестированию.</p>
-          <div class="hero-actions">
-            <a href="auth.html" class="btn btn-primary">Войти</a>
-            <a href="tests.html" class="btn btn-outline">Готовые тесты</a>
+    <section class="relative py-20 md:py-32 overflow-hidden">
+      <div class="container px-4 md:px-6">
+        <div class="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+          <div class="space-y-4 animate-fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tighter">
+              <span class="text-tasty">Вкусные</span> тесты с&nbsp;искусственным интеллектом
+            </h1>
+            <p class="max-w-[600px] text-lg md:text-xl text-muted-foreground">
+              Создавайте, проходите и делитесь уникальными тестами, созданными с помощью ИИ.
+              TastyAI — это новый подход к онлайн-тестированию.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="/auth.html">
+                <button class="bg-tasty hover:bg-tasty-dark text-white w-full sm:w-auto btn btn-primary">
+                  Войти
+                </button>
+              </a>
+              <a href="/tests.html">
+                <button class="border-tasty text-tasty hover:bg-tasty/10 w-full sm:w-auto btn btn-outline">
+                  Готовые тесты
+                </button>
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="hero-image">
-          <img src="../files/images/hero-image.svg" alt="TastyAI интерфейс">
+          <div class="relative lg:pl-10 animate-fade-in delay-150">
+            <div class="relative rounded-2xl overflow-hidden shadow-xl animate-float">
+              <img
+                src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1170&auto=format&fit=crop"
+                alt="TastyAI интерфейс"
+                class="w-full h-auto object-cover aspect-video"
+              >
+              <div class="absolute inset-0 bg-gradient-to-tr from-tasty/40 to-transparent opacity-60"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Особенности -->
-    <section class="features">
-      <div class="container">
-        <h2>Почему TastyAI?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">🧠</div>
-            <h3>Интеллектуальная генерация</h3>
-            <p>Используйте силу искусственного интеллекта для создания уникальных тестов на любую тематику.</p>
+    <section class="py-16 bg-secondary/50">
+      <div class="container px-4 md:px-6">
+        <div class="flex flex-col items-center text-center mb-12 animate-fade-in">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Почему TastyAI?</h2>
+          <p class="text-lg text-muted-foreground max-w-[800px]">
+            Наш сервис предлагает уникальный подход к созданию и прохождению тестов
+          </p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="flex flex-col items-center text-center p-6 rounded-lg bg-card shadow-sm hover:shadow-md transition-all animate-scale-in">
+            <div class="p-3 rounded-full bg-tasty/10 mb-4">
+              <span class="w-8 h-8 text-tasty text-2xl">🧠</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Интеллектуальная генерация</h3>
+            <p class="text-muted-foreground">
+              Используйте силу искусственного интеллекта для создания уникальных тестов на любую тематику.
+            </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">🏆</div>
-            <h3>Разнообразие контента</h3>
-            <p>Готовая библиотека тестов на различные темы: от науки и истории до развлечений и хобби.</p>
+          <div class="flex flex-col items-center text-center p-6 rounded-lg bg-card shadow-sm hover:shadow-md transition-all animate-scale-in delay-100">
+            <div class="p-3 rounded-full bg-tasty/10 mb-4">
+              <span class="w-8 h-8 text-tasty text-2xl">🏆</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Разнообразие контента</h3>
+            <p class="text-muted-foreground">
+              Готовая библиотека тестов на различные темы: от науки и истории до развлечений и хобби.
+            </p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Мгновенный результат</h3>
-            <p>Получайте мгновенные результаты с детальным анализом и персональными рекомендациями.</p>
+          <div class="flex flex-col items-center text-center p-6 rounded-lg bg-card shadow-sm hover:shadow-md transition-all animate-scale-in delay-200">
+            <div class="p-3 rounded-full bg-tasty/10 mb-4">
+              <span class="w-8 h-8 text-tasty text-2xl">⚡</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Мгновенный результат</h3>
+            <p class="text-muted-foreground">
+              Получайте мгновенные результаты с детальным анализом и персональными рекомендациями.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Как это работает -->
-    <section class="how-it-works">
-      <div class="container">
-        <h2>Как это работает</h2>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <h3>Зарегистрируйтесь</h3>
-            <p>Создайте аккаунт за несколько секунд и получите доступ ко всем функциям.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <h3>Выберите тему</h3>
-            <p>Выберите интересующую вас тематику или создайте тест на собственную тему.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <h3>Получите результат</h3>
-            <p>Пройдите тест и получите подробный анализ вашего результата.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Призыв к действию -->
-    <section class="cta">
-      <div class="container">
-        <h2>Готовы начать?</h2>
-        <p>Присоединяйтесь к тысячам пользователей TastyAI уже сегодня!</p>
-        <a href="auth.html" class="btn btn-primary">Создать аккаунт</a>
       </div>
     </section>
   </main>
 
   <!-- Футер -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <div class="footer-logo">
-            <img src="../files/images/logo.svg" alt="TastyAI Logo">
-            <span>Tasty<strong>AI</strong></span>
-          </div>
-          <p>Инновационная платформа для создания и прохождения интеллектуальных тестов.</p>
+  <footer class="bg-background border-t">
+    <div class="container px-4 py-12 md:px-6 md:py-16">
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div>
+          <a href="/" class="flex items-center gap-2 mb-4">
+            <span class="text-xl font-bold">TastyAI</span>
+          </a>
+          <p class="text-muted-foreground">
+            Создавайте, проходите и делитесь уникальными тестами, созданными с помощью ИИ.
+          </p>
         </div>
-        
-        <div class="footer-nav">
-          <div class="footer-nav-column">
-            <h4>Навигация</h4>
-            <ul>
-              <li><a href="index.html">Главная</a></li>
-              <li><a href="tests.html">Готовые тесты</a></li>
-              <li><a href="create-test.html">Создать тест</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Поддержка</h4>
-            <ul>
-              <li><a href="#">Помощь</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Правовая информация</h4>
-            <ul>
-              <li><a href="#">Условия использования</a></li>
-              <li><a href="#">Политика конфиденциальности</a></li>
-              <li><a href="#">Cookies</a></li>
-            </ul>
-          </div>
+        <div>
+          <h3 class="font-medium mb-4">Навигация</h3>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-muted-foreground hover:text-foreground">Главная</a></li>
+            <li><a href="/tests.html" class="text-muted-foreground hover:text-foreground">Тесты</a></li>
+            <li><a href="/create-test.html" class="text-muted-foreground hover:text-foreground">Создать тест</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium mb-4">Ресурсы</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Документация</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Руководство</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium mb-4">Связаться с нами</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Контакты</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Поддержка</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">О нас</a></li>
+          </ul>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 TastyAI. Все права защищены.</p>
+      <div class="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-muted-foreground">
+          &copy; 2025 TastyAI. Все права защищены.
+        </p>
+        <div class="flex gap-4">
+          <a href="#" class="text-muted-foreground hover:text-foreground">Условия использования</a>
+          <a href="#" class="text-muted-foreground hover:text-foreground">Конфиденциальность</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script src="../files/js/main.js"></script>
 </body>
 </html>

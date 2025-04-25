@@ -4,239 +4,297 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Готовые тесты - TastyAI</title>
+  <link rel="stylesheet" href="../files/css/styles.css">
   <link rel="icon" href="../files/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../files/css/styles.css">
-  <script src="../files/js/main.js" defer></script>
 </head>
 <body>
   <!-- Хедер -->
   <header class="header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="../files/images/logo.svg" alt="TastyAI Logo">
-        <span>Tasty<strong>AI</strong></span>
+    <div class="container flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 animate-fade-in">
+        <span class="text-2xl font-bold">
+          <span class="text-tasty">Tasty</span><span>AI</span>
+        </span>
       </a>
       
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="tests.html" class="active">Готовые тесты</a></li>
-          <li><a href="create-test.html">Создать тест</a></li>
-        </ul>
+      <!-- Поисковая строка -->
+      <form class="hidden md:flex relative max-w-sm items-center animate-fade-in">
+        <input
+          type="text"
+          placeholder="Поиск тестов..."
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+        >
+        <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+          <span class="search-icon">🔍</span>
+        </button>
+      </form>
+      
+      <!-- Навигация -->
+      <nav class="hidden md:flex items-center gap-1 animate-fade-in">
+        <a href="/tests.html" class="nav-link active">Готовые тесты</a>
+        <a href="/create-test.html" class="nav-link">Создать тест</a>
+        <a href="/auth.html">
+          <button class="ml-2 border-tasty text-tasty hover:bg-tasty hover:text-white btn btn-outline">
+            Авторизация
+          </button>
+        </a>
       </nav>
       
-      <div class="auth-btns">
-        <a href="auth.html" class="btn btn-outline">Войти</a>
+      <!-- Мобильное меню -->
+      <button class="md:hidden menu-button">
+        <span class="menu-icon">☰</span>
+      </button>
+    </div>
+    
+    <!-- Мобильное меню (скрыто по умолчанию) -->
+    <div class="mobile-menu md:hidden animate-fade-in" style="display: none;">
+      <div class="container py-4 flex flex-col gap-4">
+        <form class="flex relative items-center">
+          <input
+            type="text"
+            placeholder="Поиск тестов..."
+            class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+          >
+          <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+            <span class="search-icon">🔍</span>
+          </button>
+        </form>
+        
+        <nav class="flex flex-col items-start gap-3">
+          <a href="/tests.html" class="text-lg font-medium text-tasty">Готовые тесты</a>
+          <a href="/create-test.html" class="text-lg font-medium">Создать тест</a>
+          <a href="/auth.html">
+            <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+              Авторизация
+            </button>
+          </a>
+        </nav>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- Заголовок секции -->
-    <section class="tests-header">
-      <div class="container">
-        <h1>Готовые тесты</h1>
-        <p>Выберите и пройдите любой из доступных тестов</p>
+  <main class="flex-1">
+    <!-- Заголовок страницы -->
+    <section class="bg-secondary/50 py-12">
+      <div class="container px-4 md:px-6 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">Готовые тесты</h1>
+        <p class="text-muted-foreground max-w-[800px] mx-auto mb-8 animate-fade-in">
+          Выберите один из наших тщательно созданных тестов и проверьте свои знания
+        </p>
         
-        <div class="tests-filters">
-          <div class="search-box">
-            <input type="text" placeholder="Поиск по названию или описанию">
-            <button>🔍 Найти</button>
+        <!-- Фильтры -->
+        <div class="flex flex-wrap justify-center gap-4 animate-fade-in">
+          <div class="flex items-center relative w-full max-w-md">
+            <input 
+              type="text" 
+              placeholder="Поиск тестов..." 
+              class="w-full rounded-l-md border border-input bg-background px-4 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+            <button class="bg-tasty text-white px-4 py-2 rounded-r-md flex items-center justify-center">
+              <span>🔍</span>
+            </button>
           </div>
           
-          <div class="filter-controls">
-            <select>
-              <option value="">Все категории</option>
-              <option value="science">Наука</option>
-              <option value="history">История</option>
-              <option value="tech">Технологии</option>
-              <option value="arts">Искусство</option>
-            </select>
-            
-            <select>
-              <option value="">Сортировка</option>
-              <option value="popular">По популярности</option>
-              <option value="newest">Сначала новые</option>
-              <option value="oldest">Сначала старые</option>
-            </select>
-          </div>
+          <select class="rounded-md border border-input bg-background px-4 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-w-[180px]">
+            <option value="all">Все категории</option>
+            <option value="technology">Технологии</option>
+            <option value="history">История</option>
+            <option value="entertainment">Развлечения</option>
+            <option value="psychology">Психология</option>
+            <option value="geography">География</option>
+            <option value="biology">Биология</option>
+          </select>
         </div>
       </div>
     </section>
-    
+
     <!-- Список тестов -->
-    <section class="tests-grid">
+    <section class="py-12 px-4 md:px-6">
       <div class="container">
-        <div class="tests-container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <!-- Тест 1 -->
-          <div class="test-card">
-            <div class="test-card-header">
-              <span class="test-category">Наука</span>
-              <span class="test-difficulty">Средний</span>
-            </div>
-            <h3 class="test-title">Основы квантовой физики</h3>
-            <p class="test-description">Проверьте свои знания в области квантовой физики с помощью этого увлекательного теста.</p>
-            <div class="test-meta">
-              <div class="test-stats">
-                <span>10 вопросов</span>
-                <span>Пройдено: 1,245 раз</span>
+          <div class="bg-card rounded-lg shadow-sm hover:shadow-md transition-all animate-scale-in card-hover">
+            <div class="p-6">
+              <div class="flex justify-between mb-4">
+                <span class="inline-block text-sm font-medium py-1 px-3 rounded-full bg-tasty/10 text-tasty">Технологии</span>
               </div>
-              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+              <h3 class="text-xl font-bold mb-2">Тест на знание искусственного интеллекта</h3>
+              <p class="text-muted-foreground mb-6">Проверьте, насколько хорошо вы разбираетесь в современных технологиях ИИ</p>
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-muted-foreground">
+                  <div>10 вопросов</div>
+                  <div>Пройден 143 раза</div>
+                </div>
+                <a href="/solve-test.html">
+                  <button class="btn btn-primary">Пройти</button>
+                </a>
+              </div>
             </div>
           </div>
-          
+
           <!-- Тест 2 -->
-          <div class="test-card">
-            <div class="test-card-header">
-              <span class="test-category">История</span>
-              <span class="test-difficulty">Легкий</span>
-            </div>
-            <h3 class="test-title">Древний Египет</h3>
-            <p class="test-description">Узнайте больше о фараонах, пирамидах и древнеегипетской цивилизации.</p>
-            <div class="test-meta">
-              <div class="test-stats">
-                <span>8 вопросов</span>
-                <span>Пройдено: 987 раз</span>
+          <div class="bg-card rounded-lg shadow-sm hover:shadow-md transition-all animate-scale-in card-hover delay-100">
+            <div class="p-6">
+              <div class="flex justify-between mb-4">
+                <span class="inline-block text-sm font-medium py-1 px-3 rounded-full bg-tasty/10 text-tasty">История</span>
               </div>
-              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+              <h3 class="text-xl font-bold mb-2">История древней Греции</h3>
+              <p class="text-muted-foreground mb-6">Увлекательный тест по истории и мифологии древней Греции</p>
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-muted-foreground">
+                  <div>15 вопросов</div>
+                  <div>Пройден 78 раз</div>
+                </div>
+                <a href="/solve-test.html">
+                  <button class="btn btn-primary">Пройти</button>
+                </a>
+              </div>
             </div>
           </div>
-          
+
           <!-- Тест 3 -->
-          <div class="test-card">
-            <div class="test-card-header">
-              <span class="test-category">Технологии</span>
-              <span class="test-difficulty">Сложный</span>
-            </div>
-            <h3 class="test-title">Искусственный интеллект</h3>
-            <p class="test-description">Глубокое погружение в мир нейронных сетей, машинного обучения и ИИ.</p>
-            <div class="test-meta">
-              <div class="test-stats">
-                <span>15 вопросов</span>
-                <span>Пройдено: 678 раз</span>
+          <div class="bg-card rounded-lg shadow-sm hover:shadow-md transition-all animate-scale-in card-hover delay-200">
+            <div class="p-6">
+              <div class="flex justify-between mb-4">
+                <span class="inline-block text-sm font-medium py-1 px-3 rounded-full bg-tasty/10 text-tasty">Развлечения</span>
               </div>
-              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+              <h3 class="text-xl font-bold mb-2">Как хорошо вы знаете кино?</h3>
+              <p class="text-muted-foreground mb-6">Тест для настоящих киноманов: проверьте свои знания классики и современного кино</p>
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-muted-foreground">
+                  <div>12 вопросов</div>
+                  <div>Пройден 205 раз</div>
+                </div>
+                <a href="/solve-test.html">
+                  <button class="btn btn-primary">Пройти</button>
+                </a>
+              </div>
             </div>
           </div>
-          
+
           <!-- Тест 4 -->
-          <div class="test-card">
-            <div class="test-card-header">
-              <span class="test-category">Искусство</span>
-              <span class="test-difficulty">Средний</span>
-            </div>
-            <h3 class="test-title">Эпоха Возрождения</h3>
-            <p class="test-description">Искусство, архитектура и великие умы европейского Ренессанса.</p>
-            <div class="test-meta">
-              <div class="test-stats">
-                <span>12 вопросов</span>
-                <span>Пройдено: 542 раз</span>
+          <div class="bg-card rounded-lg shadow-sm hover:shadow-md transition-all animate-scale-in card-hover">
+            <div class="p-6">
+              <div class="flex justify-between mb-4">
+                <span class="inline-block text-sm font-medium py-1 px-3 rounded-full bg-tasty/10 text-tasty">Психология</span>
               </div>
-              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+              <h3 class="text-xl font-bold mb-2">Психологический тест: кто вы из супергероев?</h3>
+              <p class="text-muted-foreground mb-6">Узнайте, какой супергерой соответствует вашей личности</p>
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-muted-foreground">
+                  <div>8 вопросов</div>
+                  <div>Пройден 312 раз</div>
+                </div>
+                <a href="/solve-test.html">
+                  <button class="btn btn-primary">Пройти</button>
+                </a>
+              </div>
             </div>
           </div>
-          
+
           <!-- Тест 5 -->
-          <div class="test-card">
-            <div class="test-card-header">
-              <span class="test-category">Наука</span>
-              <span class="test-difficulty">Легкий</span>
-            </div>
-            <h3 class="test-title">Солнечная система</h3>
-            <p class="test-description">Исследуйте планеты, звезды и другие объекты нашей Солнечной системы.</p>
-            <div class="test-meta">
-              <div class="test-stats">
-                <span>8 вопросов</span>
-                <span>Пройдено: 1,129 раз</span>
+          <div class="bg-card rounded-lg shadow-sm hover:shadow-md transition-all animate-scale-in card-hover delay-100">
+            <div class="p-6">
+              <div class="flex justify-between mb-4">
+                <span class="inline-block text-sm font-medium py-1 px-3 rounded-full bg-tasty/10 text-tasty">География</span>
               </div>
-              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+              <h3 class="text-xl font-bold mb-2">География мира</h3>
+              <p class="text-muted-foreground mb-6">Проверьте свои знания стран, столиц и географических особенностей планеты</p>
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-muted-foreground">
+                  <div>20 вопросов</div>
+                  <div>Пройден 92 раза</div>
+                </div>
+                <a href="/solve-test.html">
+                  <button class="btn btn-primary">Пройти</button>
+                </a>
+              </div>
             </div>
           </div>
-          
+
           <!-- Тест 6 -->
-          <div class="test-card">
-            <div class="test-card-header">
-              <span class="test-category">Технологии</span>
-              <span class="test-difficulty">Средний</span>
-            </div>
-            <h3 class="test-title">Программирование на Python</h3>
-            <p class="test-description">Проверьте свои знания популярного языка программирования.</p>
-            <div class="test-meta">
-              <div class="test-stats">
-                <span>10 вопросов</span>
-                <span>Пройдено: 823 раз</span>
+          <div class="bg-card rounded-lg shadow-sm hover:shadow-md transition-all animate-scale-in card-hover delay-200">
+            <div class="p-6">
+              <div class="flex justify-between mb-4">
+                <span class="inline-block text-sm font-medium py-1 px-3 rounded-full bg-tasty/10 text-tasty">Биология</span>
               </div>
-              <a href="solve-test.html" class="btn btn-primary">Пройти</a>
+              <h3 class="text-xl font-bold mb-2">Биология человека</h3>
+              <p class="text-muted-foreground mb-6">Тест на знание анатомии и физиологии человеческого организма</p>
+              <div class="flex justify-between items-center">
+                <div class="text-sm text-muted-foreground">
+                  <div>15 вопросов</div>
+                  <div>Пройден 67 раз</div>
+                </div>
+                <a href="/solve-test.html">
+                  <button class="btn btn-primary">Пройти</button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
         
         <!-- Пагинация -->
-        <div class="pagination">
-          <button disabled>&lt; Назад</button>
-          <div class="pagination-pages">
-            <span class="pagination-current">1</span> из <span>5</span>
+        <div class="flex justify-center items-center gap-4">
+          <button class="btn btn-outline opacity-50 cursor-not-allowed" disabled>&lt; Предыдущая</button>
+          <div class="text-muted-foreground">
+            <span class="text-tasty font-bold">1</span> из <span>3</span>
           </div>
-          <button>Вперед &gt;</button>
+          <button class="btn btn-outline">Следующая &gt;</button>
         </div>
-      </div>
-    </section>
-    
-    <!-- Призыв к действию -->
-    <section class="cta">
-      <div class="container">
-        <h2>Не нашли подходящий тест?</h2>
-        <p>Создайте свой собственный тест с помощью TastyAI!</p>
-        <a href="create-test.html" class="btn btn-primary">Создать тест</a>
       </div>
     </section>
   </main>
 
   <!-- Футер -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <div class="footer-logo">
-            <img src="../files/images/logo.svg" alt="TastyAI Logo">
-            <span>Tasty<strong>AI</strong></span>
-          </div>
-          <p>Инновационная платформа для создания и прохождения интеллектуальных тестов.</p>
+  <footer class="bg-background border-t">
+    <div class="container px-4 py-12 md:px-6 md:py-16">
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div>
+          <a href="/" class="flex items-center gap-2 mb-4">
+            <span class="text-xl font-bold">TastyAI</span>
+          </a>
+          <p class="text-muted-foreground">
+            Создавайте, проходите и делитесь уникальными тестами, созданными с помощью ИИ.
+          </p>
         </div>
-        
-        <div class="footer-nav">
-          <div class="footer-nav-column">
-            <h4>Навигация</h4>
-            <ul>
-              <li><a href="index.html">Главная</a></li>
-              <li><a href="tests.html">Готовые тесты</a></li>
-              <li><a href="create-test.html">Создать тест</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Поддержка</h4>
-            <ul>
-              <li><a href="#">Помощь</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Правовая информация</h4>
-            <ul>
-              <li><a href="#">Условия использования</a></li>
-              <li><a href="#">Политика конфиденциальности</a></li>
-              <li><a href="#">Cookies</a></li>
-            </ul>
-          </div>
+        <div>
+          <h3 class="font-medium mb-4">Навигация</h3>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-muted-foreground hover:text-foreground">Главная</a></li>
+            <li><a href="/tests.html" class="text-muted-foreground hover:text-foreground">Тесты</a></li>
+            <li><a href="/create-test.html" class="text-muted-foreground hover:text-foreground">Создать тест</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium mb-4">Ресурсы</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Документация</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Руководство</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium mb-4">Связаться с нами</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Контакты</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Поддержка</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">О нас</a></li>
+          </ul>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 TastyAI. Все права защищены.</p>
+      <div class="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-muted-foreground">
+          &copy; 2025 TastyAI. Все права защищены.
+        </p>
+        <div class="flex gap-4">
+          <a href="#" class="text-muted-foreground hover:text-foreground">Условия использования</a>
+          <a href="#" class="text-muted-foreground hover:text-foreground">Конфиденциальность</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script src="../files/js/main.js"></script>
 </body>
 </html>

@@ -3,126 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вход и регистрация - TastyAI</title>
+  <title>Авторизация - TastyAI</title>
+  <link rel="stylesheet" href="../files/css/styles.css">
   <link rel="icon" href="../files/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../files/css/styles.css">
-  <script src="../files/js/main.js" defer></script>
 </head>
 <body>
   <!-- Хедер -->
   <header class="header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="../files/images/logo.svg" alt="TastyAI Logo">
-        <span>Tasty<strong>AI</strong></span>
+    <div class="container flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 animate-fade-in">
+        <span class="text-2xl font-bold">
+          <span class="text-tasty">Tasty</span><span>AI</span>
+        </span>
       </a>
       
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="tests.html">Готовые тесты</a></li>
-          <li><a href="create-test.html">Создать тест</a></li>
-        </ul>
+      <!-- Поисковая строка -->
+      <form class="hidden md:flex relative max-w-sm items-center animate-fade-in">
+        <input
+          type="text"
+          placeholder="Поиск тестов..."
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+        >
+        <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+          <span class="search-icon">🔍</span>
+        </button>
+      </form>
+      
+      <!-- Навигация -->
+      <nav class="hidden md:flex items-center gap-1 animate-fade-in">
+        <a href="/tests.html" class="nav-link">Готовые тесты</a>
+        <a href="/create-test.html" class="nav-link">Создать тест</a>
+        <a href="/auth.html">
+          <button class="ml-2 border-tasty text-tasty hover:bg-tasty hover:text-white btn btn-outline">
+            Авторизация
+          </button>
+        </a>
       </nav>
+      
+      <!-- Мобильное меню -->
+      <button class="md:hidden menu-button">
+        <span class="menu-icon">☰</span>
+      </button>
+    </div>
+    
+    <!-- Мобильное меню (скрыто по умолчанию) -->
+    <div class="mobile-menu md:hidden animate-fade-in" style="display: none;">
+      <div class="container py-4 flex flex-col gap-4">
+        <form class="flex relative items-center">
+          <input
+            type="text"
+            placeholder="Поиск тестов..."
+            class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+          >
+          <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+            <span class="search-icon">🔍</span>
+          </button>
+        </form>
+        
+        <nav class="flex flex-col items-start gap-3">
+          <a href="/tests.html" class="text-lg font-medium">Готовые тесты</a>
+          <a href="/create-test.html" class="text-lg font-medium">Создать тест</a>
+          <a href="/auth.html">
+            <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+              Авторизация
+            </button>
+          </a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="auth-section">
-      <div class="container">
-        <div class="auth-container">
-          <div class="auth-card">
-            <div class="auth-header">
-              <div class="auth-tabs">
-                <button class="tab-button active" data-tab="login">Вход</button>
-                <button class="tab-button" data-tab="register">Регистрация</button>
+  <main class="flex-1">
+    <section class="py-12 px-4 md:px-6">
+      <div class="container max-w-md mx-auto">
+        <div class="bg-card rounded-lg shadow-md overflow-hidden animate-fade-in">
+          <div class="p-6 text-center border-b">
+            <h1 class="text-2xl font-bold mb-2">Добро пожаловать в TastyAI</h1>
+            <p class="text-muted-foreground">Авторизуйтесь или создайте новый аккаунт</p>
+          </div>
+          
+          <div class="p-6">
+            <!-- Вкладки авторизации -->
+            <div class="mb-6 border-b">
+              <div class="flex">
+                <button class="px-4 py-2 tab-button active" data-tab="login">
+                  Вход
+                </button>
+                <button class="px-4 py-2 tab-button" data-tab="register">
+                  Регистрация
+                </button>
               </div>
             </div>
             
-            <div class="auth-content">
-              <!-- Вкладка входа -->
-              <div class="tab-content active" id="login">
-                <form class="auth-form">
-                  <div class="form-group">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" placeholder="Введите ваш email" required>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="login-password">Пароль</label>
-                    <input type="password" id="login-password" placeholder="Введите ваш пароль" required>
-                  </div>
-                  
-                  <div class="form-group form-checkbox">
-                    <input type="checkbox" id="remember-me">
-                    <label for="remember-me">Запомнить меня</label>
-                  </div>
-                  
-                  <button type="submit" class="btn btn-primary btn-full">Войти</button>
-                </form>
-                
-                <div class="auth-footer">
-                  <a href="#" class="forgot-password">Забыли пароль?</a>
-                </div>
-                
-                <div class="auth-alternative">
-                  <p>Или войти через</p>
-                  
-                  <div class="social-auth">
-                    <button class="social-auth-btn">Google</button>
-                    <button class="social-auth-btn">Facebook</button>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Вкладка регистрации -->
-              <div class="tab-content" id="register">
-                <form class="auth-form">
-                  <div class="form-row">
-                    <div class="form-group form-group-half">
-                      <label for="register-firstname">Имя</label>
-                      <input type="text" id="register-firstname" placeholder="Введите ваше имя" required>
+            <!-- Форма входа -->
+            <div id="login" class="tab-content active">
+              <form class="space-y-4">
+                <div>
+                  <label for="login-email" class="block text-sm font-medium mb-1">
+                    Имя пользователя
+                  </label>
+                  <div class="relative">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+                      👤
                     </div>
-                    
-                    <div class="form-group form-group-half">
-                      <label for="register-lastname">Фамилия</label>
-                      <input type="text" id="register-lastname" placeholder="Введите вашу фамилию" required>
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="register-email">Email</label>
-                    <input type="email" id="register-email" placeholder="Введите ваш email" required>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="register-password">Пароль</label>
-                    <input type="password" id="register-password" placeholder="Создайте пароль" required>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="register-confirm-password">Подтверждение пароля</label>
-                    <input type="password" id="register-confirm-password" placeholder="Подтвердите пароль" required>
-                  </div>
-                  
-                  <div class="form-group form-checkbox">
-                    <input type="checkbox" id="terms-agree" required>
-                    <label for="terms-agree">Я согласен с <a href="#">условиями использования</a></label>
-                  </div>
-                  
-                  <button type="submit" class="btn btn-primary btn-full">Зарегистрироваться</button>
-                </form>
-                
-                <div class="auth-alternative">
-                  <p>Или зарегистрироваться через</p>
-                  
-                  <div class="social-auth">
-                    <button class="social-auth-btn">Google</button>
-                    <button class="social-auth-btn">Facebook</button>
+                    <input
+                      type="text"
+                      id="login-email"
+                      class="pl-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      placeholder="username"
+                    />
                   </div>
                 </div>
-              </div>
+                
+                <div>
+                  <label for="login-password" class="block text-sm font-medium mb-1">
+                    Пароль
+                  </label>
+                  <div class="relative">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+                      🔒
+                    </div>
+                    <input
+                      type="password"
+                      id="login-password"
+                      class="pl-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      placeholder="••••••••"
+                    />
+                    <button
+                      type="button"
+                      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"
+                    >
+                      👁️
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <input
+                      type="checkbox"
+                      id="remember-me"
+                      class="rounded border-input h-4 w-4 text-tasty focus:ring-tasty"
+                    />
+                    <label for="remember-me" class="ml-2 block text-sm">
+                      Запомнить меня
+                    </label>
+                  </div>
+                  <a href="#" class="text-sm text-tasty hover:text-tasty-dark">
+                    Забыли пароль?
+                  </a>
+                </div>
+                
+                <button
+                  type="submit"
+                  class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary"
+                >
+                  Войти
+                </button>
+              </form>
+            </div>
+            
+            <!-- Форма регистрации -->
+            <div id="register" class="tab-content" style="display: none;">
+              <form class="space-y-4">
+                <div>
+                  <label for="register-name" class="block text-sm font-medium mb-1">
+                    Имя пользователя
+                  </label>
+                  <div class="relative">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+                      👤
+                    </div>
+                    <input
+                      type="text"
+                      id="register-name"
+                      class="pl-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      placeholder="username"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="register-password" class="block text-sm font-medium mb-1">
+                    Пароль
+                  </label>
+                  <div class="relative">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+                      🔒
+                    </div>
+                    <input
+                      type="password"
+                      id="register-password"
+                      class="pl-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      placeholder="••••••••"
+                    />
+                    <button
+                      type="button"
+                      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"
+                    >
+                      👁️
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="terms"
+                    class="rounded border-input h-4 w-4 text-tasty focus:ring-tasty"
+                  />
+                  <label for="terms" class="ml-2 block text-sm">
+                    Я согласен с <a href="#" class="text-tasty hover:text-tasty-dark">условиями использования</a>
+                  </label>
+                </div>
+                
+                <button
+                  type="submit"
+                  class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary"
+                >
+                  Создать аккаунт
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -131,49 +233,90 @@
   </main>
 
   <!-- Футер -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <div class="footer-logo">
-            <img src="../files/images/logo.svg" alt="TastyAI Logo">
-            <span>Tasty<strong>AI</strong></span>
-          </div>
-          <p>Инновационная платформа для создания и прохождения интеллектуальных тестов.</p>
+  <footer class="bg-background border-t">
+    <div class="container px-4 py-12 md:px-6 md:py-16">
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div>
+          <a href="/" class="flex items-center gap-2 mb-4">
+            <span class="text-xl font-bold">TastyAI</span>
+          </a>
+          <p class="text-muted-foreground">
+            Создавайте, проходите и делитесь уникальными тестами, созданными с помощью ИИ.
+          </p>
         </div>
-        
-        <div class="footer-nav">
-          <div class="footer-nav-column">
-            <h4>Навигация</h4>
-            <ul>
-              <li><a href="index.html">Главная</a></li>
-              <li><a href="tests.html">Готовые тесты</a></li>
-              <li><a href="create-test.html">Создать тест</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Поддержка</h4>
-            <ul>
-              <li><a href="#">Помощь</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Правовая информация</h4>
-            <ul>
-              <li><a href="#">Условия использования</a></li>
-              <li><a href="#">Политика конфиденциальности</a></li>
-              <li><a href="#">Cookies</a></li>
-            </ul>
-          </div>
+        <div>
+          <h3 class="font-medium mb-4">Навигация</h3>
+          <ul class="space-y-2">
+            <li><a href="/" class="text-muted-foreground hover:text-foreground">Главная</a></li>
+            <li><a href="/tests.html" class="text-muted-foreground hover:text-foreground">Тесты</a></li>
+            <li><a href="/create-test.html" class="text-muted-foreground hover:text-foreground">Создать тест</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium mb-4">Ресурсы</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Документация</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Руководство</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium mb-4">Связаться с нами</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Контакты</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">Поддержка</a></li>
+            <li><a href="#" class="text-muted-foreground hover:text-foreground">О нас</a></li>
+          </ul>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 TastyAI. Все права защищены.</p>
+      <div class="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-sm text-muted-foreground">
+          &copy; 2025 TastyAI. Все права защищены.
+        </p>
+        <div class="flex gap-4">
+          <a href="#" class="text-muted-foreground hover:text-foreground">Условия использования</a>
+          <a href="#" class="text-muted-foreground hover:text-foreground">Конфиденциальность</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script src="../files/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Переключение вкладок на странице авторизации
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const tab = this.getAttribute('data-tab');
+          
+          // Убираем active со всех кнопок и скрываем содержимое
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => content.style.display = 'none');
+          
+          // Добавляем active к текущей кнопке и показываем содержимое
+          this.classList.add('active');
+          document.getElementById(tab).style.display = 'block';
+        });
+      });
+      
+      // Переключение видимости пароля
+      const togglePasswordButtons = document.querySelectorAll('button[type="button"]');
+      togglePasswordButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const input = this.previousElementSibling;
+          if (input.type === 'password') {
+            input.type = 'text';
+            this.textContent = '👁️‍🗨️';
+          } else {
+            input.type = 'password';
+            this.textContent = '👁️';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

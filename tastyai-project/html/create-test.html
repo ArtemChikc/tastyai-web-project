@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Создание теста - TastyAI</title>
-  <link rel="icon" href="../files/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../files/css/styles.css">
-  <script src="../files/js/main.js" defer></script>
+  <link rel="icon" href="../files/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Хедер -->
@@ -15,105 +14,71 @@
     <div class="container header-container">
       <a href="index.html" class="logo">
         <img src="../files/images/logo.svg" alt="TastyAI Logo">
-        <span>Tasty<strong>AI</strong></span>
+        <span>TastyAI</span>
       </a>
-      
       <nav class="main-nav">
         <ul class="nav-list">
           <li><a href="index.html">Главная</a></li>
-          <li><a href="tests.html">Готовые тесты</a></li>
+          <li><a href="tests.html">Тесты</a></li>
           <li><a href="create-test.html" class="active">Создать тест</a></li>
         </ul>
       </nav>
-      
       <div class="auth-btns">
-        <a href="auth.html" class="btn btn-outline">Войти</a>
+        <a href="auth.html" class="btn btn-primary">Войти</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Заголовок -->
-    <section class="create-test-header">
+    <section class="create-test">
       <div class="container">
-        <h1>Создание теста</h1>
-        <p>Создайте свой собственный тест с использованием искусственного интеллекта</p>
-      </div>
-    </section>
-
-    <!-- Форма создания теста -->
-    <section class="create-test-form">
-      <div class="container">
-        <form id="testForm">
+        <div class="page-header">
+          <h1>Создание теста</h1>
+          <p>Создайте свой собственный тест с использованием искусственного интеллекта</p>
+        </div>
+        
+        <form id="testForm" class="test-form">
           <!-- Информация о тесте -->
-          <div class="test-details">
+          <div class="form-card">
             <h2>Информация о тесте</h2>
-            
             <div class="form-group">
-              <label for="test-title">Название теста</label>
-              <input type="text" id="test-title" placeholder="Введите название теста" required>
+              <label for="testTitle">Название теста</label>
+              <input type="text" id="testTitle" placeholder="Введите название теста" required>
             </div>
-            
             <div class="form-group">
-              <label for="test-description">Описание теста</label>
-              <textarea id="test-description" rows="3" placeholder="Опишите, о чем ваш тест" required></textarea>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group form-group-half">
-                <label for="test-category">Категория</label>
-                <select id="test-category" required>
-                  <option value="" disabled selected>Выберите категорию</option>
-                  <option value="science">Наука</option>
-                  <option value="history">История</option>
-                  <option value="tech">Технологии</option>
-                  <option value="arts">Искусство</option>
-                  <option value="other">Другое</option>
-                </select>
-              </div>
-              
-              <div class="form-group form-group-half">
-                <label for="test-difficulty">Сложность</label>
-                <select id="test-difficulty" required>
-                  <option value="" disabled selected>Выберите сложность</option>
-                  <option value="easy">Легкий</option>
-                  <option value="medium">Средний</option>
-                  <option value="hard">Сложный</option>
-                </select>
-              </div>
+              <label for="testDescription">Описание теста</label>
+              <textarea id="testDescription" placeholder="Опишите ваш тест и его цель" rows="3" required></textarea>
             </div>
           </div>
           
-          <!-- Вопросы теста -->
-          <div class="test-questions">
-            <div class="questions-header">
-              <h2>Вопросы</h2>
+          <!-- Вопросы -->
+          <div class="questions-section">
+            <h2>Вопросы</h2>
+            
+            <!-- Пустое состояние (когда нет вопросов) -->
+            <div id="empty-questions" class="empty-questions">
+              <p>У вас пока нет вопросов. Добавьте первый вопрос!</p>
+              <button type="button" id="add-first-question" class="btn btn-primary">
+                + Добавить вопрос
+              </button>
             </div>
             
-            <div id="questions-container">
-              <!-- Пустой вопросник (начальное состояние) -->
-              <div class="empty-questions" id="empty-questions">
-                <div class="empty-questions-content">
-                  <div class="empty-icon">❓</div>
-                  <h3>Еще нет вопросов</h3>
-                  <p>Добавьте свой первый вопрос, чтобы начать создание теста</p>
-                  <button type="button" class="btn btn-primary" id="add-first-question">Добавить вопрос</button>
-                </div>
-              </div>
-              
-              <!-- Здесь будут добавляться вопросы -->
-              <div class="questions-container" id="questions-list" style="display: none;"></div>
-            </div>
+            <!-- Список вопросов -->
+            <div id="questions-list" class="questions-list" style="display: none;"></div>
             
-            <!-- Кнопка добавления вопроса (появляется, когда есть хотя бы один вопрос) -->
-            <div class="add-question-container" id="add-question-container" style="display: none;">
-              <button type="button" class="btn btn-outline" id="add-question">+ Добавить вопрос</button>
+            <!-- Кнопка добавления вопроса (видна после добавления первого вопроса) -->
+            <div id="add-question-container" class="add-question-container" style="display: none;">
+              <button type="button" id="add-question" class="btn btn-primary">
+                + Добавить вопрос
+              </button>
             </div>
-            
-            <!-- Кнопка сохранения теста (появляется, когда есть хотя бы один вопрос) -->
-            <div class="save-test-container" id="save-test-container" style="display: none;">
-              <button type="submit" class="btn btn-primary">Сохранить тест</button>
-            </div>
+          </div>
+          
+          <!-- Кнопка сохранения -->
+          <div id="save-test-container" class="save-test-container" style="display: none;">
+            <button type="submit" class="btn btn-primary btn-save">
+              💾 Сохранить тест
+            </button>
           </div>
         </form>
       </div>
@@ -127,43 +92,37 @@
         <div class="footer-info">
           <div class="footer-logo">
             <img src="../files/images/logo.svg" alt="TastyAI Logo">
-            <span>Tasty<strong>AI</strong></span>
+            <span>TastyAI</span>
           </div>
-          <p>Инновационная платформа для создания и прохождения интеллектуальных тестов.</p>
+          <p>Создавайте и проходите уникальные тесты на любую тему с помощью искусственного интеллекта.</p>
         </div>
-        
         <div class="footer-nav">
           <div class="footer-nav-column">
             <h4>Навигация</h4>
             <ul>
               <li><a href="index.html">Главная</a></li>
-              <li><a href="tests.html">Готовые тесты</a></li>
+              <li><a href="tests.html">Тесты</a></li>
               <li><a href="create-test.html">Создать тест</a></li>
+              <li><a href="auth.html">Войти</a></li>
             </ul>
           </div>
           <div class="footer-nav-column">
-            <h4>Поддержка</h4>
+            <h4>Информация</h4>
             <ul>
-              <li><a href="#">Помощь</a></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Правовая информация</h4>
-            <ul>
-              <li><a href="#">Условия использования</a></li>
+              <li><a href="#">О нас</a></li>
               <li><a href="#">Политика конфиденциальности</a></li>
-              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Условия использования</a></li>
+              <li><a href="#">Контакты</a></li>
             </ul>
           </div>
         </div>
       </div>
-      
       <div class="footer-bottom">
         <p>&copy; 2025 TastyAI. Все права защищены.</p>
       </div>
     </div>
   </footer>
+
+  <script src="../files/js/main.js"></script>
 </body>
 </html>
