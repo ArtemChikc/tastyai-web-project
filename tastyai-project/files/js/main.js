@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const linkPath = link.getAttribute('href');
     if (currentPath === linkPath || (currentPath === '/' && linkPath === '/index.html')) {
       link.classList.add('active');
-      link.style.color = '#9b87f5';
+      link.style.color = '#db9e36';
       link.style.setProperty('--active-after-width', '100%');
     }
   });
