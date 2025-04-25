@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Авторизация - TastyAI</title>
-  <link rel="stylesheet" href="../files/css/styles.css">
+  <link rel="stylesheet" href="../files/css/styles-auth.css">
   <link rel="icon" href="../files/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -32,9 +32,9 @@
       
       <!-- Навигация -->
       <nav class="hidden md:flex items-center gap-1 animate-fade-in">
-        <a href="/tests.html" class="nav-link">Готовые тесты</a>
-        <a href="/create-test.html" class="nav-link">Создать тест</a>
-        <a href="/auth.html">
+        <a href="tests.html" class="nav-link">Готовые тесты</a>
+        <a href="create-test.html" class="nav-link">Создать тест</a>
+        <a href="auth.html">
           <button class="ml-2 border-tasty text-tasty hover:bg-tasty hover:text-white btn btn-outline">
             Авторизация
           </button>
@@ -62,9 +62,9 @@
         </form>
         
         <nav class="flex flex-col items-start gap-3">
-          <a href="/tests.html" class="text-lg font-medium">Готовые тесты</a>
-          <a href="/create-test.html" class="text-lg font-medium">Создать тест</a>
-          <a href="/auth.html">
+          <a href="tests.html" class="text-lg font-medium">Готовые тесты</a>
+          <a href="create-test.html" class="text-lg font-medium">Создать тест</a>
+          <a href="auth.html">
             <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
               Авторизация
             </button>
@@ -232,91 +232,6 @@
     </section>
   </main>
 
-  <!-- Футер -->
-  <footer class="bg-background border-t">
-    <div class="container px-4 py-12 md:px-6 md:py-16">
-      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <div>
-          <a href="/" class="flex items-center gap-2 mb-4">
-            <span class="text-xl font-bold">TastyAI</span>
-          </a>
-          <p class="text-muted-foreground">
-            Создавайте, проходите и делитесь уникальными тестами, созданными с помощью ИИ.
-          </p>
-        </div>
-        <div>
-          <h3 class="font-medium mb-4">Навигация</h3>
-          <ul class="space-y-2">
-            <li><a href="/" class="text-muted-foreground hover:text-foreground">Главная</a></li>
-            <li><a href="/tests.html" class="text-muted-foreground hover:text-foreground">Тесты</a></li>
-            <li><a href="/create-test.html" class="text-muted-foreground hover:text-foreground">Создать тест</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-medium mb-4">Ресурсы</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-muted-foreground hover:text-foreground">Документация</a></li>
-            <li><a href="#" class="text-muted-foreground hover:text-foreground">Руководство</a></li>
-            <li><a href="#" class="text-muted-foreground hover:text-foreground">FAQ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-medium mb-4">Связаться с нами</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="text-muted-foreground hover:text-foreground">Контакты</a></li>
-            <li><a href="#" class="text-muted-foreground hover:text-foreground">Поддержка</a></li>
-            <li><a href="#" class="text-muted-foreground hover:text-foreground">О нас</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-muted-foreground">
-          &copy; 2025 TastyAI. Все права защищены.
-        </p>
-        <div class="flex gap-4">
-          <a href="#" class="text-muted-foreground hover:text-foreground">Условия использования</a>
-          <a href="#" class="text-muted-foreground hover:text-foreground">Конфиденциальность</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../files/js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Переключение вкладок на странице авторизации
-      const tabButtons = document.querySelectorAll('.tab-button');
-      const tabContents = document.querySelectorAll('.tab-content');
-      
-      tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const tab = this.getAttribute('data-tab');
-          
-          // Убираем active со всех кнопок и скрываем содержимое
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(content => content.style.display = 'none');
-          
-          // Добавляем active к текущей кнопке и показываем содержимое
-          this.classList.add('active');
-          document.getElementById(tab).style.display = 'block';
-        });
-      });
-      
-      // Переключение видимости пароля
-      const togglePasswordButtons = document.querySelectorAll('button[type="button"]');
-      togglePasswordButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const input = this.previousElementSibling;
-          if (input.type === 'password') {
-            input.type = 'text';
-            this.textContent = '👁️‍🗨️';
-          } else {
-            input.type = 'password';
-            this.textContent = '👁️';
-          }
-        });
-      });
-    });
-  </script>
+  <script src="../files/js/auth.js"></script>
 </body>
 </html>

@@ -3,126 +3,281 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Создание теста - TastyAI</title>
-  <link rel="stylesheet" href="../files/css/styles.css">
+  <title>Создать тест - TastyAI</title>
+  <link rel="stylesheet" href="../files/css/styles-create-test.css">
   <link rel="icon" href="../files/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Хедер -->
   <header class="header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="../files/images/logo.svg" alt="TastyAI Logo">
-        <span>TastyAI</span>
+    <div class="container flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 animate-fade-in">
+        <span class="text-2xl font-bold">
+          <span class="text-tasty">Tasty</span><span>AI</span>
+        </span>
       </a>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="tests.html">Тесты</a></li>
-          <li><a href="create-test.html" class="active">Создать тест</a></li>
-        </ul>
+      
+      <!-- Поисковая строка -->
+      <form class="hidden md:flex relative max-w-sm items-center animate-fade-in">
+        <input
+          type="text"
+          placeholder="Поиск тестов..."
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+        >
+        <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+          <span class="search-icon">🔍</span>
+        </button>
+      </form>
+      
+      <!-- Навигация -->
+      <nav class="hidden md:flex items-center gap-1 animate-fade-in">
+        <a href="tests.html" class="nav-link">Готовые тесты</a>
+        <a href="create-test.html" class="nav-link text-tasty">Создать тест</a>
+        <a href="auth.html">
+          <button class="ml-2 border-tasty text-tasty hover:bg-tasty hover:text-white btn btn-outline">
+            Авторизация
+          </button>
+        </a>
       </nav>
-      <div class="auth-btns">
-        <a href="auth.html" class="btn btn-primary">Войти</a>
+      
+      <!-- Мобильное меню -->
+      <button class="md:hidden menu-button">
+        <span class="menu-icon">☰</span>
+      </button>
+    </div>
+    
+    <!-- Мобильное меню (скрыто по умолчанию) -->
+    <div class="mobile-menu md:hidden animate-fade-in" style="display: none;">
+      <div class="container py-4 flex flex-col gap-4">
+        <form class="flex relative items-center">
+          <input
+            type="text"
+            placeholder="Поиск тестов..."
+            class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+          >
+          <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+            <span class="search-icon">🔍</span>
+          </button>
+        </form>
+        
+        <nav class="flex flex-col items-start gap-3">
+          <a href="tests.html" class="text-lg font-medium">Готовые тесты</a>
+          <a href="create-test.html" class="text-lg font-medium text-tasty">Создать тест</a>
+          <a href="auth.html">
+            <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+              Авторизация
+            </button>
+          </a>
+        </nav>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="create-test">
-      <div class="container">
-        <div class="page-header">
-          <h1>Создание теста</h1>
-          <p>Создайте свой собственный тест с использованием искусственного интеллекта</p>
+  <main class="flex-1">
+    <section class="py-12">
+      <div class="container px-4 md:px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 animate-fade-in">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Создание теста</h1>
+            <p class="text-lg text-muted-foreground">
+              Создайте уникальный тест с помощью искусственного интеллекта, указав тему и основные параметры.
+            </p>
+          </div>
+          
+          <!-- Шаги создания теста -->
+          <div class="bg-card rounded-lg shadow-md overflow-hidden animate-fade-in">
+            <!-- Индикатор шагов -->
+            <div class="p-6 border-b">
+              <div class="stepper">
+                <div class="step active">
+                  <div class="step-circle">1</div>
+                  <span class="step-label">Настройки</span>
+                </div>
+                <div class="step">
+                  <div class="step-circle">2</div>
+                  <span class="step-label">Генерация</span>
+                </div>
+                <div class="step">
+                  <div class="step-circle">3</div>
+                  <span class="step-label">Результат</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Содержимое шагов -->
+            <div class="p-6">
+              <!-- Шаг 1: Настройки -->
+              <div class="step-content active">
+                <h2 class="text-xl font-bold mb-4">Настройки теста</h2>
+                <form class="space-y-4">
+                  <div>
+                    <label for="test-title" class="block text-sm font-medium mb-1">
+                      Название теста
+                    </label>
+                    <input
+                      type="text"
+                      id="test-title"
+                      class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      placeholder="Например: Тест по истории Древнего Рима"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label for="test-description" class="block text-sm font-medium mb-1">
+                      Описание теста
+                    </label>
+                    <textarea
+                      id="test-description"
+                      rows="3"
+                      class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      placeholder="Краткое описание темы и содержания теста"
+                    ></textarea>
+                  </div>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label for="test-category" class="block text-sm font-medium mb-1">
+                        Категория
+                      </label>
+                      <select
+                        id="test-category"
+                        class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        <option value="" disabled selected>Выберите категорию</option>
+                        <option value="science">Наука</option>
+                        <option value="history">История</option>
+                        <option value="art">Искусство</option>
+                        <option value="tech">Технологии</option>
+                        <option value="fun">Развлечения</option>
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label for="test-questions" class="block text-sm font-medium mb-1">
+                        Количество вопросов
+                      </label>
+                      <select
+                        id="test-questions"
+                        class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        <option value="5">5 вопросов</option>
+                        <option value="10" selected>10 вопросов</option>
+                        <option value="15">15 вопросов</option>
+                        <option value="20">20 вопросов</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label for="test-difficulty" class="block text-sm font-medium mb-1">
+                      Сложность
+                    </label>
+                    <div class="flex gap-4">
+                      <label class="flex items-center">
+                        <input type="radio" name="difficulty" value="easy" class="mr-2" checked />
+                        <span>Легкая</span>
+                      </label>
+                      <label class="flex items-center">
+                        <input type="radio" name="difficulty" value="medium" class="mr-2" />
+                        <span>Средняя</span>
+                      </label>
+                      <label class="flex items-center">
+                        <input type="radio" name="difficulty" value="hard" class="mr-2" />
+                        <span>Сложная</span>
+                      </label>
+                    </div>
+                  </div>
+                </form>
+                
+                <div class="mt-6 flex justify-end">
+                  <button class="bg-tasty hover:bg-tasty-dark text-white btn btn-primary step-next">
+                    Продолжить
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Шаг 2: Генерация -->
+              <div class="step-content" style="display: none;">
+                <h2 class="text-xl font-bold mb-4">Генерация вопросов</h2>
+                <p class="text-muted-foreground mb-6">
+                  На основе ваших настроек искусственный интеллект создаст уникальные вопросы для теста.
+                </p>
+                
+                <div class="mb-6">
+                  <label for="test-prompt" class="block text-sm font-medium mb-1">
+                    Дополнительные указания (необязательно)
+                  </label>
+                  <textarea
+                    id="test-prompt"
+                    rows="4"
+                    class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    placeholder="Укажите особые пожелания к содержанию теста, например: 'сфокусироваться на периоде правления Юлия Цезаря' или 'включить вопросы о культуре и архитектуре'"
+                  ></textarea>
+                </div>
+                
+                <div class="text-center mt-8">
+                  <button
+                    id="generate-test"
+                    class="bg-tasty hover:bg-tasty-dark text-white btn btn-primary px-6 py-3"
+                  >
+                    Сгенерировать тест
+                  </button>
+                </div>
+                
+                <div class="mt-6 flex justify-between">
+                  <button class="border border-input hover:bg-muted text-foreground btn btn-outline step-prev">
+                    Назад
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Шаг 3: Результат -->
+              <div class="step-content" style="display: none;">
+                <div class="text-center mb-6">
+                  <div class="inline-flex p-4 rounded-full bg-tasty/10 mb-4">
+                    <span class="text-tasty text-4xl">✓</span>
+                  </div>
+                  <h2 class="text-xl font-bold mb-2">Тест успешно создан!</h2>
+                  <p class="text-muted-foreground">
+                    Ваш тест готов к использованию. Вы можете поделиться им или начать прохождение.
+                  </p>
+                </div>
+                
+                <div class="bg-secondary/50 rounded-lg p-4 mb-6">
+                  <h3 class="font-medium mb-2">Информация о тесте</h3>
+                  <ul class="space-y-1 text-sm">
+                    <li><span class="text-muted-foreground">Название:</span> Тест по истории Древнего Рима</li>
+                    <li><span class="text-muted-foreground">Категория:</span> История</li>
+                    <li><span class="text-muted-foreground">Количество вопросов:</span> 10</li>
+                    <li><span class="text-muted-foreground">Сложность:</span> Средняя</li>
+                  </ul>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="solve-test.html" class="w-full">
+                    <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+                      Пройти тест
+                    </button>
+                  </a>
+                  <button class="w-full border-tasty text-tasty hover:bg-tasty/10 btn btn-outline">
+                    Поделиться
+                  </button>
+                </div>
+                
+                <div class="mt-6 flex justify-start">
+                  <button class="border border-input hover:bg-muted text-foreground btn btn-outline step-prev">
+                    Назад
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <form id="testForm" class="test-form">
-          <!-- Информация о тесте -->
-          <div class="form-card">
-            <h2>Информация о тесте</h2>
-            <div class="form-group">
-              <label for="testTitle">Название теста</label>
-              <input type="text" id="testTitle" placeholder="Введите название теста" required>
-            </div>
-            <div class="form-group">
-              <label for="testDescription">Описание теста</label>
-              <textarea id="testDescription" placeholder="Опишите ваш тест и его цель" rows="3" required></textarea>
-            </div>
-          </div>
-          
-          <!-- Вопросы -->
-          <div class="questions-section">
-            <h2>Вопросы</h2>
-            
-            <!-- Пустое состояние (когда нет вопросов) -->
-            <div id="empty-questions" class="empty-questions">
-              <p>У вас пока нет вопросов. Добавьте первый вопрос!</p>
-              <button type="button" id="add-first-question" class="btn btn-primary">
-                + Добавить вопрос
-              </button>
-            </div>
-            
-            <!-- Список вопросов -->
-            <div id="questions-list" class="questions-list" style="display: none;"></div>
-            
-            <!-- Кнопка добавления вопроса (видна после добавления первого вопроса) -->
-            <div id="add-question-container" class="add-question-container" style="display: none;">
-              <button type="button" id="add-question" class="btn btn-primary">
-                + Добавить вопрос
-              </button>
-            </div>
-          </div>
-          
-          <!-- Кнопка сохранения -->
-          <div id="save-test-container" class="save-test-container" style="display: none;">
-            <button type="submit" class="btn btn-primary btn-save">
-              💾 Сохранить тест
-            </button>
-          </div>
-        </form>
       </div>
     </section>
   </main>
 
-  <!-- Футер -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <div class="footer-logo">
-            <img src="../files/images/logo.svg" alt="TastyAI Logo">
-            <span>TastyAI</span>
-          </div>
-          <p>Создавайте и проходите уникальные тесты на любую тему с помощью искусственного интеллекта.</p>
-        </div>
-        <div class="footer-nav">
-          <div class="footer-nav-column">
-            <h4>Навигация</h4>
-            <ul>
-              <li><a href="index.html">Главная</a></li>
-              <li><a href="tests.html">Тесты</a></li>
-              <li><a href="create-test.html">Создать тест</a></li>
-              <li><a href="auth.html">Войти</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Информация</h4>
-            <ul>
-              <li><a href="#">О нас</a></li>
-              <li><a href="#">Политика конфиденциальности</a></li>
-              <li><a href="#">Условия использования</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 TastyAI. Все права защищены.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../files/js/main.js"></script>
+  <script src="../files/js/create-test.js"></script>
 </body>
 </html>

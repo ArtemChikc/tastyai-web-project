@@ -4,131 +4,361 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Прохождение теста - TastyAI</title>
-  <link rel="stylesheet" href="../files/css/styles.css">
+  <link rel="stylesheet" href="../files/css/styles-solve-test.css">
   <link rel="icon" href="../files/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Хедер -->
   <header class="header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="../files/images/logo.svg" alt="TastyAI Logo">
-        <span>TastyAI</span>
+    <div class="container flex h-16 items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 animate-fade-in">
+        <span class="text-2xl font-bold">
+          <span class="text-tasty">Tasty</span><span>AI</span>
+        </span>
       </a>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="tests.html">Тесты</a></li>
-          <li><a href="create-test.html">Создать тест</a></li>
-        </ul>
+      
+      <!-- Поисковая строка -->
+      <form class="hidden md:flex relative max-w-sm items-center animate-fade-in">
+        <input
+          type="text"
+          placeholder="Поиск тестов..."
+          class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+        >
+        <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+          <span class="search-icon">🔍</span>
+        </button>
+      </form>
+      
+      <!-- Навигация -->
+      <nav class="hidden md:flex items-center gap-1 animate-fade-in">
+        <a href="tests.html" class="nav-link">Готовые тесты</a>
+        <a href="create-test.html" class="nav-link">Создать тест</a>
+        <a href="auth.html">
+          <button class="ml-2 border-tasty text-tasty hover:bg-tasty hover:text-white btn btn-outline">
+            Авторизация
+          </button>
+        </a>
       </nav>
-      <div class="auth-btns">
-        <a href="auth.html" class="btn btn-primary">Войти</a>
+      
+      <!-- Мобильное меню -->
+      <button class="md:hidden menu-button">
+        <span class="menu-icon">☰</span>
+      </button>
+    </div>
+    
+    <!-- Мобильное меню (скрыто по умолчанию) -->
+    <div class="mobile-menu md:hidden animate-fade-in" style="display: none;">
+      <div class="container py-4 flex flex-col gap-4">
+        <form class="flex relative items-center">
+          <input
+            type="text"
+            placeholder="Поиск тестов..."
+            class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 pr-10"
+          >
+          <button type="submit" class="absolute right-3 text-muted-foreground hover:text-foreground">
+            <span class="search-icon">🔍</span>
+          </button>
+        </form>
+        
+        <nav class="flex flex-col items-start gap-3">
+          <a href="tests.html" class="text-lg font-medium">Готовые тесты</a>
+          <a href="create-test.html" class="text-lg font-medium">Создать тест</a>
+          <a href="auth.html">
+            <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+              Авторизация
+            </button>
+          </a>
+        </nav>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="solve-test">
-      <div class="container">
-        <!-- Информация о тесте -->
-        <div class="test-info">
-          <h1>Тест на знание искусственного интеллекта</h1>
-          <p>Проверьте, насколько хорошо вы разбираетесь в современных технологиях ИИ</p>
-          <div class="test-meta">
-            <div class="test-category">Технологии</div>
-            <div class="test-stats">10 вопросов • Пройден 143 раза</div>
-          </div>
-        </div>
-        
-        <!-- Прогресс теста -->
-        <div class="test-progress">
-          <div class="progress-text">Вопрос <span id="current-question">1</span> из <span id="total-questions">10</span></div>
-          <div class="progress-bar">
-            <div class="progress-fill" style="width: 10%;"></div>
-          </div>
-        </div>
-        
-        <!-- Текущий вопрос -->
-        <div class="question-container">
-          <div class="question-header">
-            <div class="question-number">Вопрос 1</div>
+  <main class="flex-1">
+    <section class="py-8">
+      <div class="container px-4 md:px-6">
+        <div class="max-w-3xl mx-auto animate-fade-in">
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-2">
+              <h1 class="text-2xl font-bold">Космическая одиссея</h1>
+              <span class="text-sm bg-tasty text-white px-2 py-1 rounded-md">Наука</span>
+            </div>
+            <p class="text-muted-foreground">
+              Проверьте свои знания о космических исследованиях, планетах и звездных системах.
+            </p>
           </div>
           
-          <div class="question-content">
-            <h2>Что такое искусственный интеллект?</h2>
-            <p>Выберите наиболее точное определение</p>
+          <!-- Прогресс и номер вопроса -->
+          <div class="mb-6">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm font-medium question-counter">1/5</span>
+              <span class="text-sm text-muted-foreground">Сложность: Средняя</span>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 20%"></div>
+            </div>
+          </div>
+          
+          <!-- Контент теста -->
+          <div class="bg-card rounded-lg shadow-md overflow-hidden">
+            <!-- Вопрос 1 -->
+            <div class="question-content active">
+              <div class="p-6 border-b">
+                <h2 class="text-xl font-medium mb-4">Какая планета является самой большой в Солнечной системе?</h2>
+                
+                <div class="space-y-2">
+                  <div class="answer-option selected" data-question="0" data-answer="0">
+                    <input type="radio" id="q1-a1" name="question1" checked />
+                    <label for="q1-a1">Юпитер</label>
+                  </div>
+                  <div class="answer-option" data-question="0" data-answer="1">
+                    <input type="radio" id="q1-a2" name="question1" />
+                    <label for="q1-a2">Сатурн</label>
+                  </div>
+                  <div class="answer-option" data-question="0" data-answer="2">
+                    <input type="radio" id="q1-a3" name="question1" />
+                    <label for="q1-a3">Нептун</label>
+                  </div>
+                  <div class="answer-option" data-question="0" data-answer="3">
+                    <input type="radio" id="q1-a4" name="question1" />
+                    <label for="q1-a4">Солнце</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-6 flex justify-end">
+                <button class="bg-tasty hover:bg-tasty-dark text-white btn btn-primary next-question">
+                  Следующий вопрос
+                </button>
+              </div>
+            </div>
             
-            <!-- Варианты ответа -->
-            <div class="answer-options">
-              <div class="answer-option">
-                <input type="radio" name="q1" id="q1-a" value="a">
-                <label for="q1-a">Компьютерная программа, способная самостоятельно учиться и принимать решения</label>
+            <!-- Вопрос 2 -->
+            <div class="question-content">
+              <div class="p-6 border-b">
+                <h2 class="text-xl font-medium mb-4">Кто был первым человеком, полетевшим в космос?</h2>
+                
+                <div class="space-y-2">
+                  <div class="answer-option" data-question="1" data-answer="0">
+                    <input type="radio" id="q2-a1" name="question2" />
+                    <label for="q2-a1">Нил Армстронг</label>
+                  </div>
+                  <div class="answer-option" data-question="1" data-answer="1">
+                    <input type="radio" id="q2-a2" name="question2" />
+                    <label for="q2-a2">Баз Олдрин</label>
+                  </div>
+                  <div class="answer-option selected" data-question="1" data-answer="2">
+                    <input type="radio" id="q2-a3" name="question2" checked />
+                    <label for="q2-a3">Юрий Гагарин</label>
+                  </div>
+                  <div class="answer-option" data-question="1" data-answer="3">
+                    <input type="radio" id="q2-a4" name="question2" />
+                    <label for="q2-a4">Валентина Терешкова</label>
+                  </div>
+                </div>
               </div>
-              <div class="answer-option">
-                <input type="radio" name="q1" id="q1-b" value="b">
-                <label for="q1-b">Робот, внешне похожий на человека и способный имитировать человеческое поведение</label>
+              
+              <div class="p-6 flex justify-between">
+                <button class="border border-input hover:bg-muted text-foreground btn btn-outline prev-question">
+                  Назад
+                </button>
+                <button class="bg-tasty hover:bg-tasty-dark text-white btn btn-primary next-question">
+                  Следующий вопрос
+                </button>
               </div>
-              <div class="answer-option">
-                <input type="radio" name="q1" id="q1-c" value="c">
-                <label for="q1-c">Система, которая умеет распознавать образы и обрабатывать естественный язык</label>
+            </div>
+            
+            <!-- Вопрос 3 -->
+            <div class="question-content">
+              <div class="p-6 border-b">
+                <h2 class="text-xl font-medium mb-4">Какое приблизительное расстояние от Земли до Солнца?</h2>
+                
+                <div class="space-y-2">
+                  <div class="answer-option" data-question="2" data-answer="0">
+                    <input type="radio" id="q3-a1" name="question3" />
+                    <label for="q3-a1">1 миллион километров</label>
+                  </div>
+                  <div class="answer-option selected" data-question="2" data-answer="1">
+                    <input type="radio" id="q3-a2" name="question3" checked />
+                    <label for="q3-a2">150 миллионов километров</label>
+                  </div>
+                  <div class="answer-option" data-question="2" data-answer="2">
+                    <input type="radio" id="q3-a3" name="question3" />
+                    <label for="q3-a3">300 миллионов километров</label>
+                  </div>
+                  <div class="answer-option" data-question="2" data-answer="3">
+                    <input type="radio" id="q3-a4" name="question3" />
+                    <label for="q3-a4">1 миллиард километров</label>
+                  </div>
+                </div>
               </div>
-              <div class="answer-option">
-                <input type="radio" name="q1" id="q1-d" value="d">
-                <label for="q1-d">Набор алгоритмов для анализа больших объемов данных и поиска закономерностей</label>
+              
+              <div class="p-6 flex justify-between">
+                <button class="border border-input hover:bg-muted text-foreground btn btn-outline prev-question">
+                  Назад
+                </button>
+                <button class="bg-tasty hover:bg-tasty-dark text-white btn btn-primary next-question">
+                  Следующий вопрос
+                </button>
+              </div>
+            </div>
+            
+            <!-- Вопрос 4 -->
+            <div class="question-content">
+              <div class="p-6 border-b">
+                <h2 class="text-xl font-medium mb-4">Какая галактика находится ближе всего к Млечному Пути?</h2>
+                
+                <div class="space-y-2">
+                  <div class="answer-option selected" data-question="3" data-answer="0">
+                    <input type="radio" id="q4-a1" name="question4" checked />
+                    <label for="q4-a1">Галактика Андромеды</label>
+                  </div>
+                  <div class="answer-option" data-question="3" data-answer="1">
+                    <input type="radio" id="q4-a2" name="question4" />
+                    <label for="q4-a2">Большое Магелланово Облако</label>
+                  </div>
+                  <div class="answer-option" data-question="3" data-answer="2">
+                    <input type="radio" id="q4-a3" name="question4" />
+                    <label for="q4-a3">Галактика Сомбреро</label>
+                  </div>
+                  <div class="answer-option" data-question="3" data-answer="3">
+                    <input type="radio" id="q4-a4" name="question4" />
+                    <label for="q4-a4">Галактика Треугольника</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-6 flex justify-between">
+                <button class="border border-input hover:bg-muted text-foreground btn btn-outline prev-question">
+                  Назад
+                </button>
+                <button class="bg-tasty hover:bg-tasty-dark text-white btn btn-primary next-question">
+                  Следующий вопрос
+                </button>
+              </div>
+            </div>
+            
+            <!-- Вопрос 5 -->
+            <div class="question-content">
+              <div class="p-6 border-b">
+                <h2 class="text-xl font-medium mb-4">Какое космическое тело вызывает приливы и отливы на Земле?</h2>
+                
+                <div class="space-y-2">
+                  <div class="answer-option" data-question="4" data-answer="0">
+                    <input type="radio" id="q5-a1" name="question5" />
+                    <label for="q5-a1">Солнце</label>
+                  </div>
+                  <div class="answer-option" data-question="4" data-answer="1">
+                    <input type="radio" id="q5-a2" name="question5" />
+                    <label for="q5-a2">Марс</label>
+                  </div>
+                  <div class="answer-option" data-question="4" data-answer="2">
+                    <input type="radio" id="q5-a3" name="question5" />
+                    <label for="q5-a3">Юпитер</label>
+                  </div>
+                  <div class="answer-option selected" data-question="4" data-answer="3">
+                    <input type="radio" id="q5-a4" name="question5" checked />
+                    <label for="q5-a4">Луна</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-6 flex justify-between">
+                <button class="border border-input hover:bg-muted text-foreground btn btn-outline prev-question">
+                  Назад
+                </button>
+                <button id="submit-test" class="bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+                  Завершить тест
+                </button>
+              </div>
+            </div>
+            
+            <!-- Результаты теста (скрыты до завершения) -->
+            <div id="test-results" style="display: none;">
+              <div class="p-6 border-b">
+                <div class="result-summary">
+                  <div class="result-circle">4/5</div>
+                  <div class="result-text">Отличный результат!</div>
+                  <p class="text-muted-foreground">
+                    Вы показали хорошие знания о космосе и астрономии.
+                  </p>
+                </div>
+                
+                <div class="result-stats">
+                  <div class="stat-box">
+                    <div class="stat-value" id="correct-answers">4</div>
+                    <div class="stat-label">Правильных ответов</div>
+                  </div>
+                  <div class="stat-box">
+                    <div class="stat-value" id="total-questions">5</div>
+                    <div class="stat-label">Всего вопросов</div>
+                  </div>
+                  <div class="stat-box">
+                    <div class="stat-value" id="accuracy">80%</div>
+                    <div class="stat-label">Точность</div>
+                  </div>
+                </div>
+                
+                <div class="space-y-4 mt-6">
+                  <h3 class="font-medium mb-2">Ваши ответы:</h3>
+                  
+                  <div class="p-4 bg-secondary/50 rounded-lg">
+                    <p class="font-medium mb-1">1. Какая планета является самой большой в Солнечной системе?</p>
+                    <p class="text-sm">
+                      <span class="text-correct">✓</span> Ваш ответ: <strong>Юпитер</strong> (правильный)
+                    </p>
+                  </div>
+                  
+                  <div class="p-4 bg-secondary/50 rounded-lg">
+                    <p class="font-medium mb-1">2. Кто был первым человеком, полетевшим в космос?</p>
+                    <p class="text-sm">
+                      <span class="text-correct">✓</span> Ваш ответ: <strong>Юрий Гагарин</strong> (правильный)
+                    </p>
+                  </div>
+                  
+                  <div class="p-4 bg-secondary/50 rounded-lg">
+                    <p class="font-medium mb-1">3. Какое приблизительное расстояние от Земли до Солнца?</p>
+                    <p class="text-sm">
+                      <span class="text-correct">✓</span> Ваш ответ: <strong>150 миллионов километров</strong> (правильный)
+                    </p>
+                  </div>
+                  
+                  <div class="p-4 bg-secondary/50 rounded-lg">
+                    <p class="font-medium mb-1">4. Какая галактика находится ближе всего к Млечному Пути?</p>
+                    <p class="text-sm">
+                      <span class="text-correct">✓</span> Ваш ответ: <strong>Галактика Андромеды</strong> (правильный)
+                    </p>
+                  </div>
+                  
+                  <div class="p-4 bg-secondary/50 rounded-lg">
+                    <p class="font-medium mb-1">5. Какое космическое тело вызывает приливы и отливы на Земле?</p>
+                    <p class="text-sm">
+                      <span class="text-incorrect">✗</span> Ваш ответ: <strong>Луна</strong> (неправильный)
+                    </p>
+                    <p class="text-sm mt-1">
+                      Правильный ответ: <strong>Солнце</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="p-6 flex gap-4">
+                <a href="tests.html" class="w-full">
+                  <button class="w-full border-tasty text-tasty hover:bg-tasty/10 btn btn-outline">
+                    К списку тестов
+                  </button>
+                </a>
+                <button class="w-full bg-tasty hover:bg-tasty-dark text-white btn btn-primary">
+                  Пройти еще раз
+                </button>
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Кнопки навигации -->
-        <div class="test-navigation">
-          <button class="btn btn-outline" disabled>Предыдущий</button>
-          <button class="btn btn-primary">Следующий</button>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Футер -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <div class="footer-logo">
-            <img src="../files/images/logo.svg" alt="TastyAI Logo">
-            <span>TastyAI</span>
-          </div>
-          <p>Создавайте и проходите уникальные тесты на любую тему с помощью искусственного интеллекта.</p>
-        </div>
-        <div class="footer-nav">
-          <div class="footer-nav-column">
-            <h4>Навигация</h4>
-            <ul>
-              <li><a href="index.html">Главная</a></li>
-              <li><a href="tests.html">Тесты</a></li>
-              <li><a href="create-test.html">Создать тест</a></li>
-              <li><a href="auth.html">Войти</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-column">
-            <h4>Информация</h4>
-            <ul>
-              <li><a href="#">О нас</a></li>
-              <li><a href="#">Политика конфиденциальности</a></li>
-              <li><a href="#">Условия использования</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 TastyAI. Все права защищены.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../files/js/main.js"></script>
+  <script src="../files/js/solve-test.js"></script>
 </body>
 </html>
