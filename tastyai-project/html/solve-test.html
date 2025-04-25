@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прохождение теста - TastyAI</title>
+  <link rel="icon" href="../files/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../files/css/styles.css">
+  <script src="../files/js/main.js" defer></script>
+</head>
+<body>
+  <!-- Хедер -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="../files/images/logo.svg" alt="TastyAI Logo">
+        <span>Tasty<strong>AI</strong></span>
+      </a>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="tests.html">Готовые тесты</a></li>
+          <li><a href="create-test.html">Создать тест</a></li>
+        </ul>
+      </nav>
+      
+      <div class="auth-btns">
+        <a href="auth.html" class="btn btn-outline">Войти</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="solve-test">
+      <div class="container">
+        <!-- Вводная информация о тесте -->
+        <div class="test-intro">
+          <h1>Основы квантовой физики</h1>
+          
+          <div class="test-info">
+            <div class="test-meta-item">
+              <span class="meta-label">Категория:</span>
+              <span class="meta-value">Наука</span>
+            </div>
+            <div class="test-meta-item">
+              <span class="meta-label">Сложность:</span>
+              <span class="meta-value">Средний</span>
+            </div>
+            <div class="test-meta-item">
+              <span class="meta-label">Вопросов:</span>
+              <span class="meta-value">10</span>
+            </div>
+            <div class="test-meta-item">
+              <span class="meta-label">Прошли:</span>
+              <span class="meta-value">1,245 пользователей</span>
+            </div>
+          </div>
+          
+          <p>Проверьте свои знания в области квантовой физики с помощью этого теста. Вам предстоит ответить на вопросы разной сложности о фундаментальных принципах квантовой механики.</p>
+        </div>
+        
+        <!-- Контейнер для теста -->
+        <div class="test-container">
+          <div class="test-header">
+            <div class="test-progress">
+              <div class="progress-indicator">
+                <span>Вопрос <span id="current-question">1</span> из <span id="total-questions">10</span></span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 10%;"></div>
+              </div>
+            </div>
+            
+            <div class="test-timer">
+              <span class="timer-icon">⏱️</span>
+              <span id="timer">20:00</span>
+            </div>
+          </div>
+          
+          <!-- Слайдер вопросов -->
+          <div class="question-slides">
+            <!-- Вопрос 1 -->
+            <div class="question-slide active" data-question-id="1">
+              <h3 class="question-title">Квантовая суперпозиция</h3>
+              <p class="question-text">Объясните принцип квантовой суперпозиции своими словами. Как он отличается от классической физики?</p>
+              
+              <div class="answer-container">
+                <textarea rows="6" placeholder="Введите ваш ответ" required></textarea>
+              </div>
+              
+              <div class="question-navigation">
+                <button type="button" class="btn btn-primary next-question" disabled>Следующий вопрос</button>
+              </div>
+            </div>
+            
+            <!-- Вопрос 2 (скрыт) -->
+            <div class="question-slide" data-question-id="2" style="display: none;">
+              <h3 class="question-title">Квантовое туннелирование</h3>
+              <p class="question-text">Что такое квантовое туннелирование и какие примеры этого явления вы можете привести?</p>
+              
+              <div class="answer-container">
+                <textarea rows="6" placeholder="Введите ваш ответ" required></textarea>
+              </div>
+              
+              <div class="question-navigation">
+                <button type="button" class="btn btn-outline prev-question">Предыдущий вопрос</button>
+                <button type="button" class="btn btn-primary next-question" disabled>Следующий вопрос</button>
+              </div>
+            </div>
+            
+            <!-- Дополнительные вопросы будут добавлены динамически -->
+          </div>
+          
+          <!-- Кнопка отправки теста (появляется на последнем вопросе) -->
+          <div id="submit-container" style="display: none;">
+            <button type="button" class="btn btn-primary btn-full" id="submit-test">Завершить тест</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <div class="footer-logo">
+            <img src="../files/images/logo.svg" alt="TastyAI Logo">
+            <span>Tasty<strong>AI</strong></span>
+          </div>
+          <p>Инновационная платформа для создания и прохождения интеллектуальных тестов.</p>
+        </div>
+        
+        <div class="footer-nav">
+          <div class="footer-nav-column">
+            <h4>Навигация</h4>
+            <ul>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="tests.html">Готовые тесты</a></li>
+              <li><a href="create-test.html">Создать тест</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h4>Поддержка</h4>
+            <ul>
+              <li><a href="#">Помощь</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-column">
+            <h4>Правовая информация</h4>
+            <ul>
+              <li><a href="#">Условия использования</a></li>
+              <li><a href="#">Политика конфиденциальности</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 TastyAI. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

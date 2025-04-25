@@ -33,16 +33,16 @@
   </header>
 
   <main>
-    <!-- Заголовок страницы -->
+    <!-- Заголовок секции -->
     <section class="tests-header">
       <div class="container">
         <h1>Готовые тесты</h1>
-        <p>Выберите из нашей коллекции тестов, созданных с помощью искусственного интеллекта</p>
+        <p>Выберите и пройдите любой из доступных тестов</p>
         
         <div class="tests-filters">
           <div class="search-box">
-            <input type="text" placeholder="Поиск тестов...">
-            <button>Найти</button>
+            <input type="text" placeholder="Поиск по названию или описанию">
+            <button>🔍 Найти</button>
           </div>
           
           <div class="filter-controls">
@@ -50,22 +50,22 @@
               <option value="">Все категории</option>
               <option value="science">Наука</option>
               <option value="history">История</option>
-              <option value="art">Искусство</option>
               <option value="tech">Технологии</option>
+              <option value="arts">Искусство</option>
             </select>
             
             <select>
-              <option value="">Сложность</option>
-              <option value="easy">Легкая</option>
-              <option value="medium">Средняя</option>
-              <option value="hard">Сложная</option>
+              <option value="">Сортировка</option>
+              <option value="popular">По популярности</option>
+              <option value="newest">Сначала новые</option>
+              <option value="oldest">Сначала старые</option>
             </select>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- Сетка тестов -->
+    <!-- Список тестов -->
     <section class="tests-grid">
       <div class="container">
         <div class="tests-container">
@@ -73,14 +73,14 @@
           <div class="test-card">
             <div class="test-card-header">
               <span class="test-category">Наука</span>
-              <span class="test-difficulty">Легкая</span>
+              <span class="test-difficulty">Средний</span>
             </div>
             <h3 class="test-title">Основы квантовой физики</h3>
-            <p class="test-description">Проверьте свои знания о квантовых явлениях и теориях.</p>
+            <p class="test-description">Проверьте свои знания в области квантовой физики с помощью этого увлекательного теста.</p>
             <div class="test-meta">
               <div class="test-stats">
                 <span>10 вопросов</span>
-                <span>Прошли: 342</span>
+                <span>Пройдено: 1,245 раз</span>
               </div>
               <a href="solve-test.html" class="btn btn-primary">Пройти</a>
             </div>
@@ -90,14 +90,14 @@
           <div class="test-card">
             <div class="test-card-header">
               <span class="test-category">История</span>
-              <span class="test-difficulty">Средняя</span>
+              <span class="test-difficulty">Легкий</span>
             </div>
-            <h3 class="test-title">Древний Рим и его наследие</h3>
-            <p class="test-description">Погрузитесь в мир римской истории и культуры.</p>
+            <h3 class="test-title">Древний Египет</h3>
+            <p class="test-description">Узнайте больше о фараонах, пирамидах и древнеегипетской цивилизации.</p>
             <div class="test-meta">
               <div class="test-stats">
-                <span>15 вопросов</span>
-                <span>Прошли: 187</span>
+                <span>8 вопросов</span>
+                <span>Пройдено: 987 раз</span>
               </div>
               <a href="solve-test.html" class="btn btn-primary">Пройти</a>
             </div>
@@ -106,15 +106,15 @@
           <!-- Тест 3 -->
           <div class="test-card">
             <div class="test-card-header">
-              <span class="test-category">Искусство</span>
-              <span class="test-difficulty">Легкая</span>
+              <span class="test-category">Технологии</span>
+              <span class="test-difficulty">Сложный</span>
             </div>
-            <h3 class="test-title">Мировая живопись</h3>
-            <p class="test-description">Тест на знание знаменитых художников и их произведений.</p>
+            <h3 class="test-title">Искусственный интеллект</h3>
+            <p class="test-description">Глубокое погружение в мир нейронных сетей, машинного обучения и ИИ.</p>
             <div class="test-meta">
               <div class="test-stats">
-                <span>12 вопросов</span>
-                <span>Прошли: 421</span>
+                <span>15 вопросов</span>
+                <span>Пройдено: 678 раз</span>
               </div>
               <a href="solve-test.html" class="btn btn-primary">Пройти</a>
             </div>
@@ -123,15 +123,15 @@
           <!-- Тест 4 -->
           <div class="test-card">
             <div class="test-card-header">
-              <span class="test-category">Технологии</span>
-              <span class="test-difficulty">Сложная</span>
+              <span class="test-category">Искусство</span>
+              <span class="test-difficulty">Средний</span>
             </div>
-            <h3 class="test-title">Искусственный интеллект</h3>
-            <p class="test-description">Проверьте, насколько хорошо вы понимаете современные ИИ-технологии.</p>
+            <h3 class="test-title">Эпоха Возрождения</h3>
+            <p class="test-description">Искусство, архитектура и великие умы европейского Ренессанса.</p>
             <div class="test-meta">
               <div class="test-stats">
-                <span>20 вопросов</span>
-                <span>Прошли: 128</span>
+                <span>12 вопросов</span>
+                <span>Пройдено: 542 раз</span>
               </div>
               <a href="solve-test.html" class="btn btn-primary">Пройти</a>
             </div>
@@ -140,15 +140,15 @@
           <!-- Тест 5 -->
           <div class="test-card">
             <div class="test-card-header">
-              <span class="test-category">История</span>
-              <span class="test-difficulty">Средняя</span>
+              <span class="test-category">Наука</span>
+              <span class="test-difficulty">Легкий</span>
             </div>
-            <h3 class="test-title">Великие открытия человечества</h3>
-            <p class="test-description">История научных прорывов и изобретений, изменивших мир.</p>
+            <h3 class="test-title">Солнечная система</h3>
+            <p class="test-description">Исследуйте планеты, звезды и другие объекты нашей Солнечной системы.</p>
             <div class="test-meta">
               <div class="test-stats">
-                <span>14 вопросов</span>
-                <span>Прошли: 276</span>
+                <span>8 вопросов</span>
+                <span>Пройдено: 1,129 раз</span>
               </div>
               <a href="solve-test.html" class="btn btn-primary">Пройти</a>
             </div>
@@ -157,15 +157,15 @@
           <!-- Тест 6 -->
           <div class="test-card">
             <div class="test-card-header">
-              <span class="test-category">Наука</span>
-              <span class="test-difficulty">Сложная</span>
+              <span class="test-category">Технологии</span>
+              <span class="test-difficulty">Средний</span>
             </div>
-            <h3 class="test-title">Астрономия и космос</h3>
-            <p class="test-description">Углубленные вопросы о звездах, планетах и космических явлениях.</p>
+            <h3 class="test-title">Программирование на Python</h3>
+            <p class="test-description">Проверьте свои знания популярного языка программирования.</p>
             <div class="test-meta">
               <div class="test-stats">
-                <span>18 вопросов</span>
-                <span>Прошли: 94</span>
+                <span>10 вопросов</span>
+                <span>Пройдено: 823 раз</span>
               </div>
               <a href="solve-test.html" class="btn btn-primary">Пройти</a>
             </div>
@@ -180,6 +180,15 @@
           </div>
           <button>Вперед &gt;</button>
         </div>
+      </div>
+    </section>
+    
+    <!-- Призыв к действию -->
+    <section class="cta">
+      <div class="container">
+        <h2>Не нашли подходящий тест?</h2>
+        <p>Создайте свой собственный тест с помощью TastyAI!</p>
+        <a href="create-test.html" class="btn btn-primary">Создать тест</a>
       </div>
     </section>
   </main>

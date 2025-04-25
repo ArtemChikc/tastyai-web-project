@@ -3,124 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Авторизация - TastyAI</title>
+  <title>Вход и регистрация - TastyAI</title>
   <link rel="icon" href="../files/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../files/css/styles.css">
   <script src="../files/js/main.js" defer></script>
-  <style>
-    /* Дополнительные стили для страницы авторизации */
-    .auth-section {
-      padding: 4rem 0;
-    }
-    
-    .auth-container {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    
-    .auth-card {
-      background-color: white;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-      overflow: hidden;
-    }
-    
-    .auth-header {
-      padding: 1.5rem;
-      border-bottom: 1px solid var(--color-border);
-    }
-    
-    .auth-tabs {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .tab-button {
-      background: none;
-      border: none;
-      padding: 0.5rem 0;
-      color: var(--color-text-secondary);
-      font-weight: 500;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      transition: var(--transition-base);
-    }
-    
-    .tab-button.active {
-      color: var(--color-primary);
-      border-bottom: 2px solid var(--color-primary);
-    }
-    
-    .tab-button:hover:not(.active) {
-      color: var(--color-primary-dark);
-    }
-    
-    .auth-content {
-      padding: 1.5rem;
-    }
-    
-    .tab-content {
-      display: none;
-    }
-    
-    .tab-content.active {
-      display: block;
-    }
-    
-    .auth-form {
-      margin-bottom: 1.5rem;
-    }
-    
-    .auth-alternative {
-      text-align: center;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--color-border);
-    }
-    
-    .auth-alternative p {
-      color: var(--color-text-secondary);
-      margin-bottom: 1rem;
-    }
-    
-    .social-auth {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .social-auth-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.75rem;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      background-color: white;
-      cursor: pointer;
-      transition: var(--transition-base);
-    }
-    
-    .social-auth-btn:hover {
-      background-color: var(--color-background-alt);
-    }
-    
-    .auth-footer {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    
-    .forgot-password {
-      color: var(--color-text-secondary);
-      font-size: 0.875rem;
-    }
-    
-    .forgot-password:hover {
-      color: var(--color-primary);
-    }
-  </style>
 </head>
 <body>
   <!-- Хедер -->
@@ -138,102 +25,102 @@
           <li><a href="create-test.html">Создать тест</a></li>
         </ul>
       </nav>
-      
-      <div class="auth-btns">
-        <a href="auth.html" class="btn btn-outline active">Войти</a>
-      </div>
     </div>
   </header>
 
   <main>
     <section class="auth-section">
-      <div class="container auth-container">
-        <div class="auth-card">
-          <div class="auth-header">
-            <div class="auth-tabs">
-              <button class="tab-button active" data-tab="login">Вход</button>
-              <button class="tab-button" data-tab="register">Регистрация</button>
-            </div>
-          </div>
-          
-          <div class="auth-content">
-            <!-- Вкладка Входа -->
-            <div class="tab-content active" id="login">
-              <form class="auth-form">
-                <div class="form-group">
-                  <label for="login-email">Email</label>
-                  <input type="email" id="login-email" placeholder="mail@example.com" required>
-                </div>
-                
-                <div class="form-group">
-                  <label for="login-password">Пароль</label>
-                  <input type="password" id="login-password" placeholder="Введите пароль" required>
-                </div>
-                
-                <div class="form-checkbox">
-                  <input type="checkbox" id="remember-me">
-                  <label for="remember-me">Запомнить меня</label>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Войти</button>
-              </form>
-              
-              <div class="auth-footer">
-                <a href="#" class="forgot-password">Забыли пароль?</a>
-              </div>
-              
-              <div class="auth-alternative">
-                <p>Или войдите с помощью</p>
-                <div class="social-auth">
-                  <button class="social-auth-btn">Google</button>
-                  <button class="social-auth-btn">Facebook</button>
-                </div>
+      <div class="container">
+        <div class="auth-container">
+          <div class="auth-card">
+            <div class="auth-header">
+              <div class="auth-tabs">
+                <button class="tab-button active" data-tab="login">Вход</button>
+                <button class="tab-button" data-tab="register">Регистрация</button>
               </div>
             </div>
             
-            <!-- Вкладка Регистрации -->
-            <div class="tab-content" id="register">
-              <form class="auth-form">
-                <div class="form-row">
-                  <div class="form-group form-group-half">
-                    <label for="register-first-name">Имя</label>
-                    <input type="text" id="register-first-name" placeholder="Иван" required>
+            <div class="auth-content">
+              <!-- Вкладка входа -->
+              <div class="tab-content active" id="login">
+                <form class="auth-form">
+                  <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Введите ваш email" required>
                   </div>
                   
-                  <div class="form-group form-group-half">
-                    <label for="register-last-name">Фамилия</label>
-                    <input type="text" id="register-last-name" placeholder="Иванов" required>
+                  <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" placeholder="Введите ваш пароль" required>
+                  </div>
+                  
+                  <div class="form-group form-checkbox">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Запомнить меня</label>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary btn-full">Войти</button>
+                </form>
+                
+                <div class="auth-footer">
+                  <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+                
+                <div class="auth-alternative">
+                  <p>Или войти через</p>
+                  
+                  <div class="social-auth">
+                    <button class="social-auth-btn">Google</button>
+                    <button class="social-auth-btn">Facebook</button>
                   </div>
                 </div>
-                
-                <div class="form-group">
-                  <label for="register-email">Email</label>
-                  <input type="email" id="register-email" placeholder="mail@example.com" required>
-                </div>
-                
-                <div class="form-group">
-                  <label for="register-password">Пароль</label>
-                  <input type="password" id="register-password" placeholder="Минимум 8 символов" required>
-                </div>
-                
-                <div class="form-group">
-                  <label for="register-password-confirm">Подтвердите пароль</label>
-                  <input type="password" id="register-password-confirm" placeholder="Повторите пароль" required>
-                </div>
-                
-                <div class="form-checkbox">
-                  <input type="checkbox" id="terms" required>
-                  <label for="terms">Я согласен с <a href="#">условиями использования</a> и <a href="#">политикой конфиденциальности</a></label>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">Зарегистрироваться</button>
-              </form>
+              </div>
               
-              <div class="auth-alternative">
-                <p>Или зарегистрируйтесь с помощью</p>
-                <div class="social-auth">
-                  <button class="social-auth-btn">Google</button>
-                  <button class="social-auth-btn">Facebook</button>
+              <!-- Вкладка регистрации -->
+              <div class="tab-content" id="register">
+                <form class="auth-form">
+                  <div class="form-row">
+                    <div class="form-group form-group-half">
+                      <label for="register-firstname">Имя</label>
+                      <input type="text" id="register-firstname" placeholder="Введите ваше имя" required>
+                    </div>
+                    
+                    <div class="form-group form-group-half">
+                      <label for="register-lastname">Фамилия</label>
+                      <input type="text" id="register-lastname" placeholder="Введите вашу фамилию" required>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="Введите ваш email" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="register-password">Пароль</label>
+                    <input type="password" id="register-password" placeholder="Создайте пароль" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="register-confirm-password">Подтверждение пароля</label>
+                    <input type="password" id="register-confirm-password" placeholder="Подтвердите пароль" required>
+                  </div>
+                  
+                  <div class="form-group form-checkbox">
+                    <input type="checkbox" id="terms-agree" required>
+                    <label for="terms-agree">Я согласен с <a href="#">условиями использования</a></label>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary btn-full">Зарегистрироваться</button>
+                </form>
+                
+                <div class="auth-alternative">
+                  <p>Или зарегистрироваться через</p>
+                  
+                  <div class="social-auth">
+                    <button class="social-auth-btn">Google</button>
+                    <button class="social-auth-btn">Facebook</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -288,28 +175,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Простой скрипт для управления табами
-    document.addEventListener('DOMContentLoaded', function() {
-      const tabButtons = document.querySelectorAll('.tab-button');
-      const tabContents = document.querySelectorAll('.tab-content');
-      
-      tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          // Убираем активные классы
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(content => content.classList.remove('active'));
-          
-          // Добавляем активный класс к выбранной кнопке
-          button.classList.add('active');
-          
-          // Показываем соответствующий контент
-          const tabId = button.getAttribute('data-tab');
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
-    });
-  </script>
 </body>
 </html>
